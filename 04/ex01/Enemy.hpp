@@ -1,0 +1,36 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Enemy.hpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/05/19 14:55:49 by fde-capu          #+#    #+#             */
+/*   Updated: 2021/05/19 14:55:49 by fde-capu         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef ENEMY_HPP
+# define ENEMY_HPP
+
+# include <iostream>
+# include <string>
+
+class Enemy
+{
+	protected:
+		int			hp;
+		std::string	type;
+	public:
+		Enemy(int hp, std::string const & type);
+		virtual ~Enemy(void);
+		std::string getType(void) const;
+		int getHP(void) const;
+		virtual void takeDamage(int);
+		Enemy(Enemy const & src);
+		Enemy & operator = (Enemy const & rhs);
+};
+
+std::ostream & operator << (std::ostream & o, Enemy const & i);
+
+#endif
