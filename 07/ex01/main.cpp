@@ -6,7 +6,7 @@
 /*   By: fde-capu </var/mail/fde-capu>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 10:50:08 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/06/27 14:39:22 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/06/28 10:25:05 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,12 +123,11 @@ int main()
 		// ::iter(array, array_length, hex_dump); // This doesn't work.
 		::iter(array, array_length, hex_dump<int>); // This is instantiated.
 		std::cout << "---" << std::endl;
-		// In the following case, the function is instantiated
+		// In the following overloads, the function is instantiated
 		// with another type than array is.
-		::iter(array, array_length, hex_dump<char>);
-		std::cout << "---" << std::endl;
 		::iter(array, array_length, void_function_argtype_ref_to_type_equals<char>);
-//		::iter(array, array_length, void_function_argtype_equals<char>);
+		std::cout << "---" << std::endl;
+		::iter(array, array_length, hex_dump<char>);
 	}
 	return 0;
 }
