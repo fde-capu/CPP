@@ -6,7 +6,7 @@
 #    By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/29 20:55:49 by fde-capu          #+#    #+#              #
-#    Updated: 2021/06/29 20:56:46 by fde-capu         ###   ########.fr        #
+#    Updated: 2021/06/30 11:44:11 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ SRCS	=	ClapTrap.cpp main.cpp
 HEAD	=	ClapTrap.hpp
 SHELL	=	/bin/sh
 CC		=	clang++ -std=c++98
-CCFLAGS	=	-Wall -Werror -Wextra -g
+CCFLAGS	=	-Wall -Werror -Wextra -Wconversion -g
 OBJS	=	$(SRCS:.cpp=.o)
 VAL		=	valgrind
 VALFLAG	=	--tool=memcheck \
