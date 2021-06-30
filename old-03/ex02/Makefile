@@ -5,14 +5,14 @@
 #                                                     +:+ +:+         +:+      #
 #    By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/06/29 20:55:49 by fde-capu          #+#    #+#              #
-#    Updated: 2021/06/29 20:56:46 by fde-capu         ###   ########.fr        #
+#    Created: 2021/05/19 14:59:59 by fde-capu          #+#    #+#              #
+#    Updated: 2021/05/19 14:59:59 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	ClapTrap
-SRCS	=	ClapTrap.cpp main.cpp
-HEAD	=	ClapTrap.hpp
+NAME	=	claptrap_inheritance
+SRCS	=	ClapTrap.cpp ScavTrap.cpp FragTrap.cpp main.cpp
+HEAD	=	ClapTrap.hpp ScavTrap.hpp FragTrap.hpp
 SHELL	=	/bin/sh
 CC		=	clang++ -std=c++98
 CCFLAGS	=	-Wall -Werror -Wextra -g
