@@ -6,23 +6,35 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/30 10:38:14 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/06/30 16:44:42 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/06/30 16:56:56 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 #include <iostream>
 
+const std::string  ClapTrap::default_name = "Generic ClapTrap";
+const unsigned int ClapTrap::ini_hit_points = 10;
+const unsigned int ClapTrap::ini_energy_points = 10;
+const unsigned int ClapTrap::ini_attack_damage = 0;
+const std::string  ClapTrap::class_name = "ClapTrap";
+
 ClapTrap::ClapTrap(void)
-: name("unnamed"), hit_points(10), energy_points(10), attack_damage(0)
 {
-	std::cout << "ClapTrap default constructor called (" << name << ")." << std::endl;
+	name = default_name;
+	hit_points = ini_hit_points;
+	energy_points = ini_energy_points;
+	attack_damage = ini_attack_damage;
+	std::cout << class_name << " default constructor called (" << name << ")." << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string u_name)
-: name(u_name), hit_points(10), energy_points(10), attack_damage(0)
 {
-	std::cout << "ClapTrap named constructor called (" << name << ")." << std::endl;
+	name = u_name;
+	hit_points = ini_hit_points;
+	energy_points = ini_energy_points;
+	attack_damage = ini_attack_damage;
+	std::cout << class_name << " named constructor called (" << name << ")." << std::endl;
 }
 
 ClapTrap::ClapTrap(ClapTrap const & src)
@@ -46,18 +58,18 @@ ClapTrap &	ClapTrap::operator= (ClapTrap const & rhs)
 
 ClapTrap::~ClapTrap(void)
 {
-	std::cout << "ClapTrap destructor called (" << name << ")." << std::endl;
+	std::cout << class_name << " destructor called (" << name << ")." << std::endl;
 }
 
 void	ClapTrap::attack(std::string const & target)
 {
 	if (hit_points < attack_damage)
 	{
-		std::cout << name << " does not have enough hit_points for attack. " << std::endl;
+		std::cout << name << " does not have enough hit_points for attack." << std::endl;
 		return ;
 	}
 	hit_points -= attack_damage;
-	std::cout << "ClapTrap " << name << " attacks " << target << ", causing " << attack_damage << " points of damage!" << std::endl;
+	std::cout << class_name << " " << name << " attacks " << target << ", causing " << attack_damage << " points of damage!" << std::endl;
 	return ;
 }
 

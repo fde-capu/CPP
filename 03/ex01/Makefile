@@ -5,17 +5,17 @@
 #                                                     +:+ +:+         +:+      #
 #    By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/06/29 20:55:49 by fde-capu          #+#    #+#              #
-#    Updated: 2021/06/30 15:12:29 by fde-capu         ###   ########.fr        #
+#    Created: 2021/06/30 15:11:50 by fde-capu          #+#    #+#              #
+#    Updated: 2021/06/30 16:40:19 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	Aaaaaand...\ OPEN!
-SRCS	=	ClapTrap.cpp main.cpp
-HEAD	=	ClapTrap.hpp
+NAME	=	Serena_my_love
+SRCS	=	main.cpp ClapTrap.cpp ScavTrap.cpp
+HEAD	=	ClapTrap.hpp ScavTrap.hpp
 SHELL	=	/bin/sh
 CC		=	clang++ -std=c++98
-CCFLAGS	=	-Wall -Werror -Wextra -Wconversion -g
+CCFLAGS	=	-Wall -Werror -Wextra -g
 OBJS	=	$(SRCS:.cpp=.o)
 VAL		=	valgrind
 VALFLAG	=	--tool=memcheck \
@@ -40,3 +40,4 @@ t:			all
 	./$(NAME)
 v:			all
 	$(VAL) ./$(NAME)
+

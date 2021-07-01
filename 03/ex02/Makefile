@@ -5,17 +5,17 @@
 #                                                     +:+ +:+         +:+      #
 #    By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/06/29 20:55:49 by fde-capu          #+#    #+#              #
-#    Updated: 2021/06/30 15:12:29 by fde-capu         ###   ########.fr        #
+#    Created: 2021/06/30 15:11:50 by fde-capu          #+#    #+#              #
+#    Updated: 2021/07/01 08:37:38 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	Aaaaaand...\ OPEN!
-SRCS	=	ClapTrap.cpp main.cpp
-HEAD	=	ClapTrap.hpp
+NAME	=	Repetitive_work
+SRCS	=	main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
+HEAD	=	ClapTrap.hpp ScavTrap.hpp FragTrap.hpp
 SHELL	=	/bin/sh
 CC		=	clang++ -std=c++98
-CCFLAGS	=	-Wall -Werror -Wextra -Wconversion -g
+CCFLAGS	=	-Wall -Werror -Wextra -g
 OBJS	=	$(SRCS:.cpp=.o)
 VAL		=	valgrind
 VALFLAG	=	--tool=memcheck \
@@ -40,3 +40,4 @@ t:			all
 	./$(NAME)
 v:			all
 	$(VAL) ./$(NAME)
+
