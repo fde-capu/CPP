@@ -5,14 +5,14 @@
 #                                                     +:+ +:+         +:+      #
 #    By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/05/19 14:59:59 by fde-capu          #+#    #+#              #
-#    Updated: 2021/05/19 14:59:59 by fde-capu         ###   ########.fr        #
+#    Created: 2021/06/30 15:11:50 by fde-capu          #+#    #+#              #
+#    Updated: 2021/07/01 11:56:45 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	claptrap_inheritance
-SRCS	=	ClapTrap.cpp ScavTrap.cpp FragTrap.cpp main.cpp
-HEAD	=	ClapTrap.hpp ScavTrap.hpp FragTrap.hpp
+NAME	=	Now_its_weird
+SRCS	=	main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
+HEAD	=	ClapTrap.hpp ScavTrap.hpp FragTrap.hpp DiamondTrap.hpp
 SHELL	=	/bin/sh
 CC		=	clang++ -std=c++98
 CCFLAGS	=	-Wall -Werror -Wextra -g
@@ -40,3 +40,4 @@ t:			all
 	./$(NAME)
 v:			all
 	$(VAL) ./$(NAME)
+

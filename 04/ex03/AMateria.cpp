@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 14:56:22 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/05/19 14:56:22 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/07/02 14:05:00 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,4 +73,10 @@ void AMateria::equip()
 int AMateria::isEquipped() const
 {
 	return equipped;
+}
+
+void AMateria::unequip()
+{
+	equipped = 0;
+	return ;
 }

@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 14:55:02 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/05/19 14:55:02 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/07/01 14:10:27 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,9 @@
 
 class Victim
 {
-	public:
+	private:
 		Victim(void);
+	public:
 		std::string name;
 		Victim(std::string u_name);
 		Victim(Victim const & src);

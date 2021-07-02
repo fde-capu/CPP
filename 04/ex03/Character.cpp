@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 14:56:22 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/05/19 14:56:22 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/07/02 14:05:29 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ AMateria * Character::getMateria(int i) const
 	return _inventory[i];
 }
 
-Character & Character::operator = (Character const & rhs)
+Character & Character::operator= (Character const & rhs)
 {
 	if (this != &rhs)
 	{
@@ -92,7 +92,7 @@ void Character::unequip(int idx)
 {
 	if (idx < 0 || idx >= 4)
 		return ;
-	delete _inventory[idx];
+	_inventory[idx]->unequip();
 	_inventory[idx] = 0;
 	equipped[idx] = 0;
 	return ;

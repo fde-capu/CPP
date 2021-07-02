@@ -6,11 +6,11 @@
 #    By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/19 14:55:24 by fde-capu          #+#    #+#              #
-#    Updated: 2021/05/19 14:55:24 by fde-capu         ###   ########.fr        #
+#    Updated: 2021/07/01 13:59:14 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	a.out
+NAME	=	polymorphism
 SRCS	=	Peon.cpp Victim.cpp Sorcerer.cpp main.cpp
 HEAD	=	Peon.hpp Victim.hpp Sorcerer.hpp
 SHELL	=	/bin/sh

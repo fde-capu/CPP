@@ -6,11 +6,11 @@
 #    By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/19 14:56:22 by fde-capu          #+#    #+#              #
-#    Updated: 2021/05/19 14:56:22 by fde-capu         ###   ########.fr        #
+#    Updated: 2021/07/02 11:18:47 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	a.out
+NAME	=	bocal_fantasy
 SRCS	=	AMateria.cpp main.cpp \
 			MateriaSource.cpp Ice.cpp \
 			Cure.cpp Character.cpp

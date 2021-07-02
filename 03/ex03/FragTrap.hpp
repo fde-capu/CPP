@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/19 14:54:32 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/05/19 14:54:32 by fde-capu         ###   ########.fr       */
+/*   Created: 2021/07/01 08:38:36 by fde-capu          #+#    #+#             */
+/*   Updated: 2021/07/01 12:11:47 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#ifndef FRAGTRAP_HPP
+# define FRAGTRAP_HPP
 # include "ClapTrap.hpp"
-# include <iostream>
+# include <string>
 
-class ScavTrap : public ClapTrap
+class FragTrap: virtual public ClapTrap
 {
-	private:
-		static const int			_u_default[8];
-		static const std::string	_u_pun[11];
-		static const std::string	_u_obj_name;
-		static const std::string	_u_robot_code;
+	protected:
+		static const std::string default_name;
+		static const unsigned int ini_hit_points;
+		static const unsigned int ini_energy_points;
+		static const unsigned int ini_attack_damage;
+		static const std::string class_name;
 	public:
-		~ScavTrap(void);
-		void						challengeNewcomer(std::string const & target);
-		ScavTrap(std::string u_name);
+		FragTrap();
+		FragTrap(std::string);
+		~FragTrap();
+		void highFiveGuys(void);
 };
 
 #endif

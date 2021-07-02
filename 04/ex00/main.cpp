@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 14:55:02 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/05/19 14:55:02 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/07/01 14:14:39 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,9 @@
 
 void	testSorcerer(void)
 {
-	std::cout << "--- Colpien test ---" << std::endl;
+	std::cout << std::endl << "--- Coplien test --- Sorcerer ---" << std::endl;
 	std::cout << "Construct:" << std::endl;
+	// Sorcerer noname; // Constructor(void) is private (Coplien, but unaccessible).
 	Sorcerer robert("Robert", "the Magnificent");
 	{
 		std::cout << "Copy must initialize the same, but may have differente values:" << std::endl;
@@ -32,7 +33,7 @@ void	testSorcerer(void)
 		std::cout << robert << rob_cp2 << std::endl;
 		std::cout << "Deconstruct 2 copy elements:" << std::endl;
 	}
-	std::cout << "--- end of Colpien test ---" << std::endl;
+	std::cout << "--- end of Coplien test ---" << std::endl;
 	std::cout << "Sorcerer::polymorph on Victim:" << std::endl;
 	Victim jim("Jimmy");
 	robert.polymorph(jim);
@@ -41,8 +42,9 @@ void	testSorcerer(void)
 
 void	testVictim(void)
 {
-	std::cout << "--- Colpien test ---" << std::endl;
+	std::cout << std::endl << "--- Coplien test --- Victim ---" << std::endl;
 	std::cout << "Construct:" << std::endl;
+	// Victim noname; // Also private to keep Coplien.
 	Victim victim("Jimmy");
 	{
 		std::cout << "Copy must initialize the same, but may have differente values:" << std::endl;
@@ -57,7 +59,7 @@ void	testVictim(void)
 		std::cout << victim << vic_cp2 << std::endl;
 		std::cout << "Deconstruct 2 copy elements:" << std::endl;
 	}
-	std::cout << "--- end of Colpien test ---" << std::endl;
+	std::cout << "--- end of Coplien test ---" << std::endl;
 	std::cout << "Victim::getPolymorphed:" << std::endl;
 	victim.getPolymorphed();
 	return ;
@@ -65,7 +67,7 @@ void	testVictim(void)
 
 void	testPeon(void)
 {
-	std::cout << "--- Colpien test ---" << std::endl;
+	std::cout << std::endl << "--- Coplien test --- Peon ---" << std::endl;
 	std::cout << "Construct:" << std::endl;
 	Peon peon("Joe");
 	{
@@ -81,7 +83,7 @@ void	testPeon(void)
 		std::cout << peon << peon_cp2 << std::endl;
 		std::cout << "Deconstruct 2 copy elements:" << std::endl;
 	}
-	std::cout << "--- end of Colpien test ---" << std::endl;
+	std::cout << "--- end of Coplien test ---" << std::endl;
 	std::cout << "Peon::getPolymorphed:" << std::endl;
 	peon.getPolymorphed();
 	return ;
@@ -97,9 +99,12 @@ int	main(void)
 		Sorcerer robert("Robert", "the Magnificent");
 		Victim jim("Jimmy");
 		Peon joe("Joe");
-		std::cout << robert << jim << joe << std::endl;
+		std::cout << robert << jim << joe; // (*)
 		robert.polymorph(jim);
 		robert.polymorph(joe);
 		return 0;
 	}
+	// (*) This is the given main that disrupts the second General Rule:
+	// "Every output goes to the standard output, and will be ended
+	// by a newline, unless specified otherwise." (This is the case.)
 }

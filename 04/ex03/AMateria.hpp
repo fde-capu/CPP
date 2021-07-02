@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 14:56:22 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/05/19 14:56:22 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/07/02 14:03:52 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ class AMateria
 		AMateria & operator = (AMateria const & rhs);
 		void equip();
 		int isEquipped() const;
+		void unequip();
 };
 
 std::ostream & operator << (std::ostream & o, AMateria const & self);
