@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 10:20:23 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/05/19 22:07:17 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/07/06 08:17:23 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,16 +99,8 @@ void Form::setTarget(std::string u_target)
 	target = u_target;
 }
 
-void Form::action() const
-{
-	deb("Form::action()");
-	std::cout << "This is base form; not associated with any action." << std::endl;
-	return ;
-}
-
 std::string Form::execute(Bureaucrat const & executor) const
 {
-	deb("Form::execute()");
 	if (getAuthorityToExec() < executor.getGrade())
 		return ("No execution: grade not enough.");
 	if (!isSigned())

@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 10:18:25 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/07/05 15:35:11 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/07/06 09:34:25 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -185,45 +185,82 @@ int main()
 	std::string error_msg;
 	std::cout << "Chapter IV Exercise 02: No, you need form 28B, not 28C..." << std::endl;
 	srand (time(NULL)); // Needed random seed.
+	std::string foo; // For pausing the execution.
+
+	std::cout << "// This is the same Ze Bedelho from before:" << std::endl;
 	std::cout << ze << std::endl;
+
 	std::cout << "A" << std::endl;
-	Form base("Simple Base Form (no action)", 150, 150);
+	Form base("Simple_Base_Form_(no_action)", 150, 150);
 	std::cout << base << std::endl;
-	error_msg = base.execute(ze); // Not signed form.
+	std::cout << "// Form is not signed, cannot execute:" << std::endl;
+	error_msg = base.execute(ze);
 	std::cout << error_msg << std::endl;
-	ze.signForm(base); // Now signed.
-	error_msg = base.execute(ze); // Executes, but there is no action associated.
-	std::cout << error_msg << std::endl;
-	ze.executeForm(base); // This syntax is the implementation needed in the subject. Auto prints error if any.
+	std::cout << "// Even calling the proper way:" << std::endl;
+	Bureaucrat max_authority("Head of Bureaucracy", 1);
+	max_authority.executeForm(base);
+	std::cout << "// Ze signs the From:" << std::endl;
+	ze.signForm(base);
+	std::cout << "// Calling execution from a bureaucrat, will do:" << std::endl;
+	ze.executeForm(base);
+	std::cout << "// The base form accepts execution, does not have an action associated, generates no error:" << std::endl;
+	error_msg = base.execute(ze);
+	std::cout << error_msg << std::endl; // Empty error.
+
 	std::cout << "B" << std::endl;
+	std::cout << "// ShrubberyCreationForm defaults to 145, 137. `home.txt` is passed to be created later on execution." << std::endl;
 	ShrubberyCreationForm shrub("home.txt");
 	std::cout << shrub << std::endl;
-	ze.executeForm(shrub); // Not enough grade.
-	ze.signForm(shrub); // There is enough grade to sign (145 == 145).
-	ze.executeForm(shrub); // Not enough grade (again, but now the form is signed).
+	std::cout << "// Check if the file exists (it should not) and press <Enter>..." << std::endl;
+	std::getline(std::cin, foo);
+	std::cout << "// Ze does not have enough grade to execute:" << std::endl;
+	ze.executeForm(shrub);
+	std::cout << "// But he can sign (145 == 145):" << std::endl;
+	ze.signForm(shrub);
+	std::cout << "// Check, the form has been signed:" << std::endl;
 	std::cout << shrub << std::endl;
-	ze.incrementGrade(8); // Now ze is 137.
+	std::cout << "// Still Ze cannot execute because of grade:" << std::endl;
+	ze.executeForm(shrub);
+	std::cout << "// Now Ze receives raise of 8, and is graded 137, able to execute." << std::endl;
+	ze.incrementGrade(8);
 	std::cout << ze << std::endl;
-	ze.executeForm(shrub); // It is executed.
-	system("cat home.txt"); // Demo of output file (you should see a tree).
+	ze.executeForm(shrub);
+	std::cout << "// Check the file `home.txt` has been created, check its content. Press <Enter>." << std::endl;
+	std::getline(std::cin, foo);
+	system("cat home.txt");
 	// system("rm -f home.txt"); // Leaving the file for demo purposes.
+
 	std::cout << "C" << std::endl;
-	ze.incrementGrade(300); // Now ze is grade 1.
-	std::cout << ze << std::endl;
+	std::cout << "// RobotomyRequestForm:" << std::endl;
 	RobotomyRequestForm robotomy("Cyborg");
 	std::cout << robotomy << std::endl;
-	ze.executeForm(robotomy); // Not signed.
-	ze.signForm(robotomy);
-	ze.executeForm(robotomy); // Now execs (noise sounds and 50% chance of success).
+	std::cout << "// Not signed, no execution:" << std::endl;
+	max_authority.executeForm(robotomy);
+	std::cout << "// Let's sign it:" << std::endl;
+	max_authority.signForm(robotomy);
+	std::cout << "// Beware noises and 50% chance of success. Press <Enter> to execute the form." << std::endl;
+	std::getline(std::cin, foo);
+	max_authority.executeForm(robotomy);
+	std::cout << "// Test done, press <Enter> to continue." << std::endl;
+	std::getline(std::cin, foo);
+
 	std::cout << "D" << std::endl;
+	std::cout << "// PresidentialPardonForm:" << std::endl;
 	PresidentialPardonForm pardon("Guilty person");
 	std::cout << pardon << std::endl;
-	ze.executeForm(pardon); // Not signed.
-	ze.signForm(pardon);
-	ze.executeForm(pardon);
+	std::cout << "// Not signed:" << std::endl;
+	max_authority.executeForm(pardon);
+	std::cout << "// Signs:" << std::endl;
+	max_authority.signForm(pardon);
+	std::cout << "// Executes:" << std::endl;
+	max_authority.executeForm(pardon);
+
 	std::cout << "E" << std::endl;
-	for (int i = 0; i < 10; i++)
-		ze.executeForm(robotomy); // Check statistics 50% success (test more times for better accuracy).
-	std::cout << std::endl;
+	std::cout << "// Check statistics of that 50% chance for RobotomyRequestForm:" << std::endl;
+	std::cout << "// Now lets run RobotomyRequestForm for many times, press <Enter>." << std::endl;
+	std::getline(std::cin, foo);
+	for (int i = 0; i < 10; i++) // The more the better accuracy.
+		max_authority.executeForm(robotomy);
+
 	return 0;
 }

@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 10:18:12 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/05/19 22:10:57 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/07/06 08:15:35 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ class Form : public IGradeExceptions
 		const int authority_to_sign;
 		const int authority_to_execute;
 		std::string target;
-		virtual void action() const;
+		virtual void action() const {};
+		Form();
 	public:
 		std::string getName() const;
 		int isSigned() const;

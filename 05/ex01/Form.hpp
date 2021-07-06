@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 14:56:53 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/07/05 12:29:43 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/07/06 07:33:03 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ class Form : public GradeExceptions
 		bool is_signed;
 		const int authority_to_sign;
 		const int authority_to_execute;
+		Form();
 	public:
 		std::string getName() const;
 		int isSigned() const;

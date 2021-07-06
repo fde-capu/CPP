@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 14:56:53 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/07/05 12:59:38 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/07/06 07:33:49 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class Form;
 
 # define BUREAU_HIGHEST_GRADE 1
 # define BUREAU_LOWEST_GRADE 150
-# define DEFAULT_INITIAL_GRADE LOWEST_GRADE
+# define DEFAULT_INITIAL_GRADE BUREAU_LOWEST_GRADE
 
 /*
 ** Incrementing the grade must lower the grade.
