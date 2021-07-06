@@ -6,11 +6,11 @@
 #    By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/17 10:18:29 by fde-capu          #+#    #+#              #
-#    Updated: 2021/05/19 21:40:17 by fde-capu         ###   ########.fr        #
+#    Updated: 2021/07/05 15:27:58 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	a.out
+NAME	=	28B_not_28C
 SRCS	=	Bureaucrat.cpp main.cpp Form.cpp Debs.cpp IGradeExceptions.cpp \
 			ShrubberyCreationForm.cpp RobotomyRequestForm.cpp \
 			PresidentialPardonForm.cpp

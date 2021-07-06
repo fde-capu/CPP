@@ -6,11 +6,11 @@
 #    By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/19 14:56:43 by fde-capu          #+#    #+#              #
-#    Updated: 2021/05/19 14:56:43 by fde-capu         ###   ########.fr        #
+#    Updated: 2021/07/05 11:31:13 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	a.out
+NAME	=	Mommy_when_I_grow_up
 SRCS	=	Bureaucrat.cpp main.cpp
 HEAD	=	Bureaucrat.hpp
 SHELL	=	/bin/sh

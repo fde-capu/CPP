@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 14:56:43 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/05/19 14:56:43 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/07/05 12:02:50 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void deb(std::string x)
 }
 
 Bureaucrat::Bureaucrat(void)
-: name("Ze Bedelho"), grade(150)
+: name("Ze Bedelho"), grade(DEFAULT_INITIAL_GRADE)
 {
 	deb("::Default creation, default values.");
 	return ;
@@ -37,14 +37,14 @@ Bureaucrat::Bureaucrat(Bureaucrat const & src)
 	return ;
 }
 
-Bureaucrat & Bureaucrat::operator = (Bureaucrat const & rhs)
+Bureaucrat & Bureaucrat::operator= (Bureaucrat const & rhs)
 {
 	deb("::Assignation, `operator =`.");
 	(void)rhs;
 	return *this;
 }
 
-std::ostream & operator << (std::ostream & o, Bureaucrat const & self)
+std::ostream & operator<< (std::ostream & o, Bureaucrat const & self)
 {
 	o << self.getName() << ", bureaucrat grade " << self.getGrade() << "." <<  std::endl;
 	return o;
@@ -68,13 +68,13 @@ int Bureaucrat::getGrade() const
 
 void Bureaucrat::incrementGrade(int x)
 {
-	setGrade(grade - x); // Minus. Whatever.
+	setGrade(grade - x); // Minus.
 	return ;
 }
 
 void Bureaucrat::decrementGrade(int x)
 {
-	setGrade(grade + x); // Plus. Whatever.
+	setGrade(grade + x); // Plus.
 	return ;
 }
 
@@ -88,7 +88,7 @@ int Bureaucrat::setGrade(int u_grade)
 			throw GradeTooHighException();
 		grade = u_grade;
 	}
-	catch (GradeTooLowException & e)
+	catch (GradeTooLowException & e) // GrateToo* are std::exception subclasses.
 	{
 		grade = LOWEST_GRADE;
 		std::cout << e.what() << std::endl;

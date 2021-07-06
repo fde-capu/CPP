@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 14:56:53 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/05/19 14:56:53 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/07/05 12:29:43 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ class Bureaucrat;
 
 # define FORM_LOWEST_GRADE 150
 # define FORM_HIGHEST_GRADE 1
+# define IS_SIGNED_AT_BEGINNING 0
 
 class GradeExceptions
 {
@@ -45,7 +46,7 @@ class Form : public GradeExceptions
 {
 	private:
 		const std::string name;
-		int is_signed;
+		bool is_signed;
 		const int authority_to_sign;
 		const int authority_to_execute;
 	public:
@@ -58,7 +59,7 @@ class Form : public GradeExceptions
 		Form & operator = (Form const & rhs);
 		~Form(void);
 		Form * clone() const;
-		void beSigned(Bureaucrat &);
+		void beSigned(const Bureaucrat &);
 };
 
 std::ostream & operator << (std::ostream & o, Form const & self);

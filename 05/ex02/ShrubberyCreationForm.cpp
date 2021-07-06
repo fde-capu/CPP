@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 15:25:35 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/05/19 21:24:40 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/07/05 15:59:39 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 #include <fstream>
 #include <cstdlib>
 #include <sstream>
+
+const std::string ShrubberyCreationForm::default_form_name = "ShrubberyCreationForm";
 
 std::string ShrubberyTreeArt(int width, int height)
 {
@@ -108,7 +110,7 @@ std::string ShrubberyTreeArt(int width, int height)
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string u_target)
-: Form("ShrubberyCreationForm", 145, 137)
+: Form(default_form_name, default_sign_grade, default_exec_grade)
 {
 	deb("Created a ShrubberyForm");
 	setTarget(u_target);

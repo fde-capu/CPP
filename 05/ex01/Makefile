@@ -6,11 +6,11 @@
 #    By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/19 14:56:53 by fde-capu          #+#    #+#              #
-#    Updated: 2021/05/19 14:56:53 by fde-capu         ###   ########.fr        #
+#    Updated: 2021/07/05 12:24:04 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	a.out
+NAME	=	Form_up_maggots
 SRCS	=	Bureaucrat.cpp main.cpp Form.cpp Debs.cpp
 HEAD	=	Bureaucrat.hpp Form.hpp Debs.hpp
 SHELL	=	/bin/sh

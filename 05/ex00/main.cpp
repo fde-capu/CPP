@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 14:56:43 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/05/19 14:56:43 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/07/05 12:39:03 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,56 +15,75 @@
 
 int main()
 {
-	std::cout << "A" << std::endl;
-	Bureaucrat ze; // Default creation, default values.
+	std::cout << std::endl << "A // Default creation, default values, stack." << std::endl;
+	Bureaucrat ze;
 	std::cout << ze << &ze << std::endl;
-	std::cout << "B" << std::endl;
-	Bureaucrat mane(ze); // Reference constructor.
+
+	std::cout << std::endl << "B // Reference constructor, stack." << std::endl;
+	Bureaucrat mane(ze);
 	std::cout << mane << &mane << std::endl;
-	std::cout << "C" << std::endl;
-	Bureaucrat pangua = mane; // Assignation.
+	
+	std::cout << std::endl << "C // Assignation, stack." << std::endl;
+	Bureaucrat pangua = mane;
 	std::cout << pangua << &pangua << std::endl;
-	std::cout << "D" << std::endl;
-	Bureaucrat * fulano = new Bureaucrat; // Pointer default creation.
+	
+	std::cout << std::endl << "D // Pointer default creation, heap." << std::endl;
+	Bureaucrat * fulano = new Bureaucrat;
 	std::cout << *fulano << fulano << std::endl;
-	std::cout << "E" << std::endl; // All Bureaucrats are unique.
+	
+	std::cout << std::endl << "E // All Bureaucrats are unique." << std::endl;
 	ze.incrementGrade(5);
 	std::cout << ze << mane << pangua << *fulano << std::endl;
-	mane.incrementGrade(10);
+	mane.incrementGrade(11);
 	std::cout << ze << mane << pangua << *fulano << std::endl;
-	pangua.incrementGrade(20);
+	pangua.incrementGrade(21);
 	std::cout << ze << mane << pangua << *fulano << std::endl;
-	fulano->incrementGrade(50);
+	fulano->incrementGrade(42);
 	std::cout << ze << mane << pangua << *fulano << std::endl;
-	std::cout << "F" << std::endl;
-	Bureaucrat beltrano(ze); // Demo of copying grade values (reference).
-	std::cout << beltrano << std::endl;
-	Bureaucrat sicrano = mane; // (Assignation.)
-	std::cout << sicrano << std::endl;
-	std::cout << "G" << std::endl;
-	Bureaucrat tom("Tom", 42); // Custom constructor.
+	
+	std::cout << std::endl << "F // Ref. constructor copies name and grade." << std::endl;
+	Bureaucrat beltrano(ze);
+	std::cout << beltrano << ze << std::endl;
+	
+	std::cout << std::endl << "G // Custom constructor." << std::endl;
+	Bureaucrat tom("Tom", 42);
 	std::cout << tom << std::endl;
-	std::cout << "H" << std::endl;
-	Bureaucrat dick("Dick", -42); // Exception catcher (too HIGH).
+	
+	std::cout << std::endl << "H // Exception catcher (too HIGH)." << std::endl;
+	Bureaucrat dick("Dick", -42); // Less is more.
 	std::cout << dick << std::endl; // Defaults to HIGHEST_GRADE.
-	std::cout << "I" << std::endl;
-	Bureaucrat harry("Harry", 151); // Exception (too LOW).
+
+	std::cout << std::endl << "I // Exception (too LOW)." << std::endl;
+	Bureaucrat harry("Harry", 151); // More is less.
 	std::cout << harry << std::endl; // Defaults to LOWEST_GRADE.
-	std::cout << "J" << std::endl;
+	
+	std::cout << std::endl << "J // incrementGrade() HIGH grade exception." << std::endl;
 	dick.decrementGrade(21);
 	std::cout << dick << std::endl;
 	dick.incrementGrade(42); // Exception, too high.
 	std::cout << dick << std::endl; // Defaults to HIGHEST_GRADE.
-	std::cout << "K" << std::endl;
+	
+	std::cout << std::endl << "K // decrementGrade() LOW exception." << std::endl;
 	harry.incrementGrade(55);
 	std::cout << harry << std::endl;
-	harry.decrementGrade(555);
+	harry.decrementGrade(555); // Too low.
 	std::cout << harry << std::endl; // Defaults to LOWEST_GRADE.
-	std::cout << "L" << std::endl;
-	harry.incrementGrade(77);
+	
+	std::cout << std::endl << "L // setGrade() working." << std::endl;
+	harry.setGrade(1);
 	std::cout << harry << std::endl;
-	Bureaucrat full_copy(harry); // Name is also copied.
-	std::cout << full_copy << std::endl;
+
+	std::cout << std::endl << "M // setGrade() exception HIGH." << std::endl;
+	harry.setGrade(0);
+	std::cout << harry << std::endl;
+
+	std::cout << std::endl << "N // setGrade() exception LOW." << std::endl;
+	harry.setGrade(151);
+	std::cout << harry << std::endl;
+
+	std::cout << std::endl << "O // Getters." << std::endl;
+	std::cout << "{{ " << harry.getName() << " : " << harry.getGrade() << " }}" << std::endl;
+
 	delete fulano;
 	return 0;
 }

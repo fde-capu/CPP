@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 14:56:53 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/05/19 14:56:53 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/07/05 12:29:56 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int GradeExceptions::checkRange(int u_grade, int u_min, int u_max)
 }
 
 Form::Form(const std::string u_name, const int u_auth_to_sign, const int u_auth_to_exec)
-: name(u_name), is_signed(0),
+: name(u_name), is_signed(IS_SIGNED_AT_BEGINNING),
   authority_to_sign(checkRange(u_auth_to_sign, FORM_LOWEST_GRADE, FORM_HIGHEST_GRADE)),
   authority_to_execute(checkRange(u_auth_to_exec, FORM_LOWEST_GRADE, FORM_HIGHEST_GRADE))
 {
@@ -105,7 +105,7 @@ int Form::getAuthorityToExec() const
 	return authority_to_execute;
 }
 
-void Form::beSigned(Bureaucrat & bu)
+void Form::beSigned(const Bureaucrat & bu)
 {
 	deb("Form::beSigned()");
 	int test_grade = checkRange(bu.getGrade(), authority_to_sign, FORM_HIGHEST_GRADE);

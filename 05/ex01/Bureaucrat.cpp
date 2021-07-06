@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 14:56:53 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/05/19 14:56:53 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/07/05 12:58:12 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "Debs.hpp"
 
 Bureaucrat::Bureaucrat(void)
-: name("Ze Bedelho"), grade(150)
+: name("Ze Bedelho"), grade(DEFAULT_INITIAL_GRADE)
 {
 	deb("Bureaucrat::Default creation, default values.");
 	return ;
@@ -30,14 +30,14 @@ Bureaucrat::Bureaucrat(Bureaucrat const & src)
 	return ;
 }
 
-Bureaucrat & Bureaucrat::operator = (Bureaucrat const & rhs)
+Bureaucrat & Bureaucrat::operator= (Bureaucrat const & rhs)
 {
 	deb("Bureaucrat::Assignation, `operator =`.");
 	(void)rhs;
 	return *this;
 }
 
-std::ostream & operator << (std::ostream & o, Bureaucrat const & self)
+std::ostream & operator<< (std::ostream & o, Bureaucrat const & self)
 {
 	o << self.getName() << ", bureaucrat grade " << self.getGrade() << "." <<  std::endl;
 	return o;
@@ -61,13 +61,13 @@ int Bureaucrat::getGrade() const
 
 void Bureaucrat::incrementGrade(int x)
 {
-	setGrade(grade - x); // Minus. Whatever.
+	setGrade(grade - x); // Minus.
 	return ;
 }
 
 void Bureaucrat::decrementGrade(int x)
 {
-	setGrade(grade + x); // Plus. Whatever.
+	setGrade(grade + x); // Plus.
 	return ;
 }
 
@@ -81,7 +81,7 @@ int Bureaucrat::setGrade(int u_grade)
 			throw GradeTooHighException();
 		grade = u_grade;
 	}
-	catch (GradeTooLowException & e)
+	catch (GradeTooLowException & e) // GrateToo* are std::exception subclasses.
 	{
 		grade = BUREAU_LOWEST_GRADE;
 		std::cout << e.what() << std::endl;
@@ -110,7 +110,7 @@ void Bureaucrat::signForm(Form & form)
 	}
 	form.beSigned(*this);
 	if (form.isSigned())
-		std::cout << name << " signs " << form.getName() << std::endl;
+		std::cout << name << " signs " << form.getName() << "." << std::endl;
 	else
 		std::cout << name << " could not sign " << form.getName() << " because of not enough grade." << std::endl;
 	return ;

@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 14:56:22 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/07/02 18:03:01 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/07/02 19:05:04 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -233,14 +233,15 @@ int main()
 		// (*)
 		// Whenever a Materia is unequipped, it is NOT freed:
 		// "The unequip method must NOT delete Materia!"
-		// a better hevior would be:
+		// a better behavior would be:
 		// AMateria * Character::unequip(int idx)
 		// ...could return a pointer to a reusable Materia preserving the XP.
 		// However, unequip() is prototyped as void in given ICharacter.hpp.
 		// So - when unnequipping, the address might be forgotten.
 		// That is why I have used those "materia_save_X" for this demo.
-		// In short, all unequipped materia must be re-equipped
-		// or manually freed.
+		// In short, all unequipped materia must be re-equipped (left
+		// to the Character death to free it) or manually freed
+		// (then the user must be extra attentive about it).
 		//
 
 		delete me;
