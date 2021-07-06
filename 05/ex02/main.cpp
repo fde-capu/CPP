@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 10:18:25 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/07/06 09:34:25 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/07/06 10:24:40 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -255,7 +255,7 @@ int main()
 	std::cout << "// Executes:" << std::endl;
 	max_authority.executeForm(pardon);
 
-	std::cout << "E" << std::endl;
+	std::cout << std::endl << "E" << std::endl;
 	std::cout << "// Check statistics of that 50% chance for RobotomyRequestForm:" << std::endl;
 	std::cout << "// Now lets run RobotomyRequestForm for many times, press <Enter>." << std::endl;
 	std::getline(std::cin, foo);

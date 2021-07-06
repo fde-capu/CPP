@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 16:42:31 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/07/05 15:59:47 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/07/06 10:27:44 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,10 @@ void randomNoise(int x, std::string wave_type)
 	{
 		hz = rand() % 1000 + 200;
 		dr = rand() % 200 + 100;
-		ss << "(speaker-test -t " << wave_type << " -f " << hz << " > /dev/null)& pid=$!; sleep 0." << dr << "s; kill -9 $pid;";
+		ss << "(xspeaker-test -t " << wave_type << " -f " << hz << " > /dev/null) 2> /dev/null & pid=$!; sleep 0." << dr << "s; kill -9 $pid 2>/dev/null;";
+		std::cout << "ouch" << std::endl;
 	}
-	std::cout << "[playing drilling noises]" << std::endl;
+	std::cout << "[Pxxxt pxxt pxxxxxt pxt pxt]" << std::endl;
 	ss << "sleep 0.8s;";
 	system(ss.str().c_str());
 	return ;
