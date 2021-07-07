@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 10:20:23 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/05/19 22:07:17 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/07/06 21:23:04 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,11 @@ Form & Form::operator = (Form const & rhs)
 
 std::ostream & operator << (std::ostream & o, Form const & self)
 {
+	if (!static_cast<bool>(&self))
+	{
+		o << "Form is NULL." << std::endl;
+		return o;
+	}
 	o << "::Form::        Name: " << self.getName() << std::endl;
 	o << "   Authority to Sign: " << self.getAuthorityToSign() << std::endl;
 	o << "Authority to Execute: " << self.getAuthorityToExec() << std::endl;
@@ -97,13 +102,6 @@ std::string Form::getTarget() const
 void Form::setTarget(std::string u_target)
 {
 	target = u_target;
-}
-
-void Form::action() const
-{
-	deb("Form::action()");
-	std::cout << "This is base form; not associated with any action." << std::endl;
-	return ;
 }
 
 std::string Form::execute(Bureaucrat const & executor) const

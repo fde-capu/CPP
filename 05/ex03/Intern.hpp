@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 14:14:36 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/05/29 09:16:03 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/07/06 21:30:48 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,18 +24,16 @@
 	new RobotomyRequestForm(""), \
 	new PresidentialPardonForm("")
 # define THIS_MANY_FORMS 3
-# define TEXT_SIMILARITY_READING 0.15
 
 class Intern
 {
 	private:
 		static const Form * all_I_need_to_know[THIS_MANY_FORMS];
-		Form * toDo;
-		Form * thinkHard(std::string);
+		static Form * thinkHard(std::string);
 	public:
 		Intern(void);
 		Intern(Intern const & src);
-		Intern & operator = (Intern const & rhs);
+		Intern & operator= (Intern const & rhs);
 		~Intern(void);
 		Intern * clone() const;
 		Form * makeForm(std::string, std::string);

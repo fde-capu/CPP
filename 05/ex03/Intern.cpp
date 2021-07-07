@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 14:14:47 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/05/29 09:23:30 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/07/06 21:32:38 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ Intern::Intern(Intern const & src)
 	return ;
 }
 
-Intern & Intern::operator = (Intern const & rhs)
+Intern & Intern::operator= (Intern const & rhs)
 {
 	if (this != &rhs)
 	{
@@ -58,7 +58,7 @@ Intern * Intern::clone() const
 
 Form * Intern::makeForm(std::string form_name, std::string form_target)
 {
-	toDo = thinkHard(form_name);
+	Form * toDo = thinkHard(form_name);
 	if (toDo != 0)
 	{
 		toDo->setTarget(form_target);
@@ -67,8 +67,8 @@ Form * Intern::makeForm(std::string form_name, std::string form_target)
 	}
 	else
 	{
-		std::cout << "[Explicit error]" << std::endl << "Intern: I - I c - could not understand what you asked for." << std::endl;
-		return 0;
+		std::cout << "[Explicit error] Intern: I - I c - could not understand what you asked for." << std::endl;
+		return 0; // A pointer to NULL!
 	}
 }
 
@@ -76,7 +76,7 @@ bool too_similar(double a, double b)
 {
 	double x = a - b;
 	if (x < 0.0) x *= -1;
-	if (x < TEXT_SIMILARITY_READING) return true;
+	if (x < 0.05) return true;
 	return false;
 }
 
@@ -92,7 +92,7 @@ int best_score(RatcliffObershelpSimilarity * score[THIS_MANY_FORMS])
 		if (score[i]->getScore() > best) best = score[i]->getScore();
 		if (score[i]->getScore() == best) out = i;
 	}
-	if (best < TEXT_SIMILARITY_READING || confusion) out = -1;
+	if (best < 0.05) out = -1;
 	return out;
 }
 

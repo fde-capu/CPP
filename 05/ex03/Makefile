@@ -6,11 +6,11 @@
 #    By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/17 10:18:29 by fde-capu          #+#    #+#              #
-#    Updated: 2021/05/21 16:58:49 by fde-capu         ###   ########.fr        #
+#    Updated: 2021/07/06 12:19:15 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	a.out
+NAME	=	it_beats_coffee-making
 SRCS	=	Bureaucrat.cpp main.cpp Form.cpp Debs.cpp IGradeExceptions.cpp \
 			ShrubberyCreationForm.cpp RobotomyRequestForm.cpp \
 			PresidentialPardonForm.cpp Intern.cpp \

@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 14:02:49 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/05/19 22:25:55 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/07/06 21:30:03 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,11 @@ Bureaucrat::Bureaucrat(std::string u_name, int u_grade)
 
 void Bureaucrat::signForm(Form & form)
 {
-	deb("Bureaucrat::signForm()");
+	if (!static_cast<bool>(&form))
+	{
+		std::cout << "WTF you intern! Where is the form?" << std::endl;
+		return ;
+	}
 	if (form.isSigned())
 	{
 		std::cout << name << " cannot sign " << form.getName() << " because it is already signed." << std::endl;
@@ -118,6 +122,11 @@ void Bureaucrat::signForm(Form & form)
 
 void Bureaucrat::executeForm(Form const & form)
 {
+	if (!static_cast<bool>(&form))
+	{
+		std::cout << "Studip intern! Cannot execute unexistent form!" << std::endl;
+		return ;
+	}
 	std::string exec_test = form.execute(*this);
 	if (exec_test == "")
 		std::cout << getName() << " executes " << form.getName() << "." << std::endl;
