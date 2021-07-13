@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 14:55:02 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/07/01 14:14:39 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/07/13 18:02:29 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,12 +99,9 @@ int	main(void)
 		Sorcerer robert("Robert", "the Magnificent");
 		Victim jim("Jimmy");
 		Peon joe("Joe");
-		std::cout << robert << jim << joe; // (*)
+		std::cout << robert << jim << joe;
 		robert.polymorph(jim);
 		robert.polymorph(joe);
 		return 0;
 	}
-	// (*) This is the given main that disrupts the second General Rule:
-	// "Every output goes to the standard output, and will be ended
-	// by a newline, unless specified otherwise." (This is the case.)
 }

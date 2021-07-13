@@ -6,7 +6,7 @@
 /*   By: fde-capu </var/mail/fde-capu>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 10:50:08 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/06/28 10:25:05 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/07/07 11:12:00 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,14 @@ int int_function_no_args()
 template<typename T>
 void void_function_argtype_equals(T x)
 {
-	std::cout << "void_function_argtype_equals(" << x << ") called." << std::endl;
+	std::cout << "void_function_argtype_equals(" << x << "::" << &x << ") called." << std::endl;
 	return ;
 }
 
 template<typename T>
 void void_function_argtype_ref_to_type_equals(T & x)
 {
-	std::cout << "void_function_argtype_ref_to_type_equals(" << x << ") called." << std::endl;
+	std::cout << "void_function_argtype_ref_to_type_equals(" << x << "::" << &x << ") called." << std::endl;
 	return ;
 }
 
@@ -75,23 +75,20 @@ void test(T * array, size_t array_length, std::string title)
 	::iter(array, array_length, void_function_argtype_ref_to_type_equals<T>);
 	std::cout << "---" << std::endl;
 	::iter(array, array_length, hex_dump<T>);
-	std::cout << "---" << std::endl;
-	::iter(array, array_length, int_function_no_args);
 	std::cout << "===" << std::endl;
 	std::cout << std::endl;
 }
 
-void f_a() { std::cout << "function a" << std::endl; }
-void f_b() { std::cout << "function b" << std::endl; }
-void f_c() { std::cout << "function c" << std::endl; }
+void vf_a() { std::cout << "void function a" << std::endl; }
+void vf_b() { std::cout << "void function b" << std::endl; }
+void vf_c() { std::cout << "void function c" << std::endl; }
+
+int if_a() { std::cout << "int function a" << std::endl; return 42; }
+int if_b() { std::cout << "int function b" << std::endl; return 42; }
+int if_c() { std::cout << "int function c" << std::endl; return 42; }
 
 int main()
 {
-	{
-		const size_t array_length = 4;
-		int array[array_length] = {42, 142, 123, -42};
-		test(array, array_length, "int array[4]");
-	}
 	{
 		const size_t array_length = 4;
 		int array[array_length] = {42, 142, 123, -42};
@@ -112,16 +109,22 @@ int main()
 	}
 	{
 		const size_t array_length = 3;
-		void (*array[array_length])() = {f_a, f_b, f_c};
+		int (*array[array_length])() = {if_a, if_b, if_c};
+		test(array, array_length, "Array of int functions");
+	}
+	{
+		const size_t array_length = 3;
+		void (*array[array_length])() = {vf_a, vf_b, vf_c};
 		test(array, array_length, "Array of void functions");
 	}
 	{
 		std::cout << "More tests" << std::endl << "---" << std::endl;
 		const size_t array_length = 4;
 		int array[array_length] = {42, 142, 123, -42};
-		// For sake of explanation: for templated functions:
-		// ::iter(array, array_length, hex_dump); // This doesn't work.
-		::iter(array, array_length, hex_dump<int>); // This is instantiated.
+		// For sake of explanation:
+		// subject.pdf states that iter() should work on instantiated templates.
+		// ::iter(array, array_length, hex_dump); // This doesn't work...
+		::iter(array, array_length, hex_dump<int>); // ...this is ok, instantiated.
 		std::cout << "---" << std::endl;
 		// In the following overloads, the function is instantiated
 		// with another type than array is.

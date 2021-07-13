@@ -6,11 +6,11 @@
 #    By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/19 14:55:48 by fde-capu          #+#    #+#              #
-#    Updated: 2021/05/19 14:55:48 by fde-capu         ###   ########.fr        #
+#    Updated: 2021/07/13 18:06:24 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	a.out
+NAME	=	set_the_world_on_fire.out
 SRCS	=	AWeapon.cpp PlasmaRifle.cpp \
 			PowerFist.cpp Enemy.cpp \
 			SuperMutant.cpp RadScorpion.cpp \
