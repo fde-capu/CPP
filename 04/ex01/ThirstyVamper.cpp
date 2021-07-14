@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Peon.hpp                                           :+:      :+:    :+:   */
+/*   ThirstyVamper.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/19 14:55:02 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/07/14 09:15:27 by fde-capu         ###   ########.fr       */
+/*   Created: 2021/07/14 15:40:21 by fde-capu          #+#    #+#             */
+/*   Updated: 2021/07/14 15:46:39 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PEON_HPP
-# define PEON_HPP
+#include "ThirstyVamper.hpp"
+#include <iostream>
 
-# include <string>
-# include "Victim.hpp"
-
-class Peon: public Victim
+ThirstyVamper::ThirstyVamper(void)
+: Enemy(117, "Thirsty Vamper")
 {
-	public:
-		Peon(std::string u_name);
-		virtual ~Peon(void);
-		virtual void getPolymorphed(void) const;
-};
+	std::cout << "* Nhshlp... *" << std::endl;
+	return ;
+}
 
-#endif
+ThirstyVamper::~ThirstyVamper(void)
+{
+	std::cout << "* PLAFF *" << std::endl;
+	return ;
+}

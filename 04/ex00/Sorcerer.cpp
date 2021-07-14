@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 14:55:02 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/05/19 14:55:02 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/07/14 09:19:46 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ Sorcerer::Sorcerer(Sorcerer const & src)
 	return ;
 }
 
-Sorcerer &	Sorcerer::operator = (Sorcerer const & rhs)
+Sorcerer & Sorcerer::operator= (Sorcerer const & rhs)
 {
 	if (this != &rhs)
 	{
@@ -38,7 +38,7 @@ Sorcerer &	Sorcerer::operator = (Sorcerer const & rhs)
 	return *this;
 }
 
-std::ostream &	operator << (std::ostream & o, Sorcerer const & i)
+std::ostream & operator<< (std::ostream & o, Sorcerer const & i)
 {
 	std::cout << "I am " << i.name << ", " << i.title << ", and I like ponies!" << std::endl;
 	return o;

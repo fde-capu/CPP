@@ -1,34 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Victim.hpp                                         :+:      :+:    :+:   */
+/*   LooserStigma.hpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/19 14:55:02 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/07/14 09:16:32 by fde-capu         ###   ########.fr       */
+/*   Created: 2021/07/14 15:11:40 by fde-capu          #+#    #+#             */
+/*   Updated: 2021/07/14 16:45:24 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef VICTIM_HPP
-# define VICTIM_HPP
+#ifndef LOSERSTIGMA_HPP
+# define LOSERSTIGMA_HPP
 
-# include <iostream>
-# include <string>
+# include "AWeapon.hpp"
 
-class Victim
+class LooserStigma: public AWeapon
 {
-	private:
-		Victim(void) {};
 	public:
-		std::string name; // Public for demo purposes.
-		Victim(std::string u_name);
-		Victim(Victim const & src);
-		Victim & operator= (Victim const & rhs);
-		virtual ~Victim(void);
-		virtual void getPolymorphed(void) const;
+		LooserStigma();
+		virtual void attack() const;
 };
-
-std::ostream & operator<< (std::ostream & o, Victim const & i);
 
 #endif

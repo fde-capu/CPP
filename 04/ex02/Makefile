@@ -6,11 +6,11 @@
 #    By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/19 14:56:12 by fde-capu          #+#    #+#              #
-#    Updated: 2021/07/13 18:06:42 by fde-capu         ###   ########.fr        #
+#    Updated: 2021/07/14 16:31:11 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	purify_it.out
+NAME	=	purify_it
 SRCS	=	main.cpp Squad.cpp TacticalMarine.cpp \
 			AssaultTerminator.cpp
 HEAD	=	ISquad.hpp ISpaceMarine.hpp \

@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 14:55:48 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/05/19 14:55:48 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/07/14 15:58:42 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ Enemy::Enemy(Enemy const & src)
 	return ;
 }
 
-Enemy & Enemy::operator = (Enemy const & rhs)
+Enemy & Enemy::operator= (Enemy const & rhs)
 {
 	if (this != &rhs)
 	{
@@ -36,7 +36,7 @@ Enemy & Enemy::operator = (Enemy const & rhs)
 	return *this;
 }
 
-std::ostream & operator << (std::ostream & o, Enemy const & i)
+std::ostream & operator<< (std::ostream & o, Enemy const & i)
 {
 	o << "::Enemy::" << std::endl;
 	o << "hp: " << i.getHP() << std::endl;
