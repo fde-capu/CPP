@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Peon.hpp                                           :+:      :+:    :+:   */
+/*   PlanctonHoney.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/19 14:55:02 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/07/14 09:15:27 by fde-capu         ###   ########.fr       */
+/*   Created: 2021/07/15 09:39:36 by fde-capu          #+#    #+#             */
+/*   Updated: 2021/07/15 10:51:32 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PEON_HPP
-# define PEON_HPP
+#include "PlanctonHoney.hpp"
+#include <iostream>
 
-# include <string>
-# include "Victim.hpp"
+PlanctonHoney::PlanctonHoney()
+: AMateria("plancton honey")
+{ }
 
-class Peon: public Victim
+PlanctonHoney * PlanctonHoney::clone() const
 {
-	public:
-		Peon(std::string u_name);
-		virtual ~Peon(void);
-		virtual void getPolymorphed(void) const;
-};
+	return new PlanctonHoney();
+}
 
-#endif
+void PlanctonHoney::use(ICharacter & target)
+{
+	_xp += 12;
+	std::cout << "* gives sparkling sweet potion to " << target.getName() << " *" << std::endl;
+}

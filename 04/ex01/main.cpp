@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 14:55:48 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/07/01 14:58:13 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/07/14 17:12:50 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,11 @@
 #include "SuperMutant.hpp"
 #include "RadScorpion.hpp"
 #include "Character.hpp"
+#include "ThirstyVamper.hpp"
+#include "SlurryPod.hpp"
+#include "DealZap.hpp"
+#include "PeaceTelepathy.hpp"
+#include "LooserStigma.hpp"
 
 int main(void)
 {
@@ -159,6 +164,61 @@ int main(void)
 		delete fist;
 		delete mutant; // Will yeld "Aaargh..."
 		delete guy;
+	}
+	{
+		std::cout << std::endl << "=== More Tests ===" << std::endl << "(invented objects)" << std::endl << std::endl;
+		Character * hero = new Character("Heroy"); // Silent.
+		std::cout << "vamper is born:" << std::endl;
+		Enemy * vamper = new ThirstyVamper();
+		std::cout << "pod is born:" << std::endl;
+		Enemy * pod = new SlurryPod();
+		AWeapon * peace = new PeaceTelepathy();
+		AWeapon * deal = new DealZap();
+		AWeapon * stigma = new LooserStigma();
+		std::cout << std::endl << "Check all initial status:" << std::endl << std::endl;
+		std::cout << "hero: " << *hero << std::endl;
+		std::cout << "vamper: " << *vamper << std::endl;
+		std::cout << "pod: " << *pod << std::endl;
+		std::cout << "peace: " << *peace << std::endl;
+		std::cout << "deal: " << *deal << std::endl;
+		std::cout << "stigma: " << *stigma << std::endl;
+
+		hero->equip(peace); // Costs 40 AP and causes 0 damage.
+		std::cout << "hero with equip: " << *hero << std::endl;
+		hero->attack(vamper);
+		std::cout << "result hero: " << *hero << std::endl;
+		std::cout << "result vamper: " << *vamper << std::endl;
+
+		hero->recoverAP();
+		hero->equip(stigma);
+		std::cout << "hero recovered with LooserStigma: " << *hero << std::endl;
+		std::cout << "Attack fails, nothing happens >(mark)>" << std::endl;
+		hero->attack(vamper);
+		std::cout << "<(mark)< LooserStigma needs 11 AP!" << std::endl;
+
+		hero->recoverAP();
+		std::cout << "hero recovered: " << *hero << std::endl;
+		hero->attack(vamper);
+		std::cout << "hero result: " << *hero << std::endl;
+		std::cout << "vamper result (looses 10 HP): " << *vamper << std::endl;
+
+		hero->equip(deal);
+		std::cout << "hero with DealZap: " << *hero << std::endl;
+		hero->attack(vamper);
+		std::cout << "hero result: " << *hero << std::endl;
+		std::cout << "vamper result (looses 1 HP): " << *vamper << std::endl;
+
+		std::cout << "remember pod: " << *pod << std::endl;
+		hero->attack(pod);
+		std::cout << "hero result: " << *hero << std::endl;
+		std::cout << "pod result (looses 1 HP): " << *pod << std::endl;
+
+		delete stigma; // silent
+		delete deal; // silent
+		delete peace; // silent
+		delete pod; // CRASHKABOOM
+		delete vamper; // PLAFF
+		delete hero; // silent
 	}
 	return 0;
 }

@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Peon.hpp                                           :+:      :+:    :+:   */
+/*   MuddyWaters.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/19 14:55:02 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/07/14 09:15:27 by fde-capu         ###   ########.fr       */
+/*   Created: 2021/07/15 09:51:44 by fde-capu          #+#    #+#             */
+/*   Updated: 2021/07/15 10:48:40 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PEON_HPP
-# define PEON_HPP
+#include "MuddyWaters.hpp"
 
-# include <string>
-# include "Victim.hpp"
+MuddyWaters::MuddyWaters()
+: AMateria("muddy waters")
+{ }
 
-class Peon: public Victim
+MuddyWaters * MuddyWaters::clone() const
 {
-	public:
-		Peon(std::string u_name);
-		virtual ~Peon(void);
-		virtual void getPolymorphed(void) const;
-};
+	return new MuddyWaters();
+}
 
-#endif
+void MuddyWaters::use(ICharacter & target)
+{
+	_xp += 13;
+	std::cout << "* " << target.getName() << " is now a hoochie coochie *" << std::endl;
+}

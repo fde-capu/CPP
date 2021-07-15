@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 14:56:22 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/07/02 14:05:00 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/07/15 12:06:22 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ AMateria::AMateria(AMateria const & src)
 	return ;
 }
 
-AMateria & AMateria::operator = (AMateria const & rhs)
+AMateria & AMateria::operator= (AMateria const & rhs)
 {
 	if (this != &rhs)
 	{
@@ -49,13 +49,6 @@ std::string const & AMateria::getType() const
 unsigned int AMateria::getXP() const
 {
 	return _xp;
-}
-
-void AMateria::use(ICharacter& target)
-{
-	_xp += 10;
-	(void)target;
-	return ;
 }
 
 std::ostream & operator << (std::ostream & o, AMateria const & self)

@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 14:56:12 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/07/02 08:31:03 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/07/13 18:08:38 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int main()
 		TacticalMarine  * tm = new TacticalMarine;
 		squad.push(tm);
 		Squad	squad_cp;
-		squad_cp = s; // This creates two new marines for the copy. True:
+		squad_cp = squad; // This creates two new marines for the copy. True:
 		std::cout << "(A) " << squad.getCount() << " == " << squad_cp.getCount() << std::endl;
 		TacticalMarine * foo = new TacticalMarine;
 		squad_cp.push(foo);
@@ -51,9 +51,9 @@ int main()
 		std::cout << "(C) " << squad.getCount() << " == 2" << std::endl;
 		squad.push(0); // Does nothing when pushing null pointer.
 		std::cout << "(D) " << squad.getCount() << " == 2" << std::endl;
-		squad_cp = s; // at2, tm2 and foo will die, two new copies of at and tm will be in squad_cp.
+		squad_cp = squad; // at2, tm2 and foo will die, two new copies of at and tm will be in squad_cp.
 		std::cout << "(E) " << squad.getCount() << " == " << squad_cp.getCount() << std::endl;
-		Squad hard_cp(s); // Copy constructor
+		Squad hard_cp(squad); // Copy constructor
 		std::cout << "(F) " << squad.getCount() << " == " << hard_cp.getCount() << std::endl;
 		TacticalMarine * foo2 = new TacticalMarine;
 		hard_cp.push(foo2);

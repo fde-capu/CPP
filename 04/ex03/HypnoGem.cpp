@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Peon.hpp                                           :+:      :+:    :+:   */
+/*   HypnoGem.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/19 14:55:02 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/07/14 09:15:27 by fde-capu         ###   ########.fr       */
+/*   Created: 2021/07/15 09:46:45 by fde-capu          #+#    #+#             */
+/*   Updated: 2021/07/15 15:27:48 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PEON_HPP
-# define PEON_HPP
+#include "HypnoGem.hpp"
 
-# include <string>
-# include "Victim.hpp"
+HypnoGem::HypnoGem()
+: AMateria("gem of hypnosis")
+{ }
 
-class Peon: public Victim
+HypnoGem * HypnoGem::clone() const
 {
-	public:
-		Peon(std::string u_name);
-		virtual ~Peon(void);
-		virtual void getPolymorphed(void) const;
-};
+	return new HypnoGem();
+}
 
-#endif
+void HypnoGem::use(ICharacter & target)
+{
+	_xp += 14;
+	std::cout << "* ..." << target.getName() << " is getting sleepy... *" << std::endl;
+}

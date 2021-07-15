@@ -6,7 +6,7 @@
 /*   By: fde-capu </var/mail/fde-capu>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 10:50:26 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/06/27 14:31:32 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/07/07 11:13:19 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 
 /*
 ** It seems is useless to have the same function running for each element if
-** the function does not use the array value to process anything (it seems but
-** it might turn out to be usefull depending on context).
+** the function does not use the array value to process anything
+** (though it might turn out to be usefull depending on context).
 ** Third ::iter() argument is "a function called for each element of the array";
 ** in this case, fun() without arguments, let's loop fun() array_length times.
 ** It is not mentined that after running the loop the array would be modified.
@@ -60,9 +60,9 @@ void iter(T * array, size_t array_length, F fun(T &))
 }
 
 /*
-** Now, if the function gets as argument something else
-** than the same type of array. Seems useless (but might not be)
-** since does not takt array[i] value into consideration.
+** Now, if the function gets as argument something another type than the array.
+** Seems useless (but might not be). It also does not takt array[i] value into
+** consideration, and does not modify the array.
 */
 template<typename T, typename F, typename FT>
 void iter(T * array, size_t array_length, F fun(FT &))
@@ -73,5 +73,15 @@ void iter(T * array, size_t array_length, F fun(FT &))
 		fun(foo);
 	return ;
 }
+
+/*
+** Functions with more arguments than one?
+** Variadic templates are C++11 (not allowed for this project).
+*/
+
+/*
+** To take uninstantiated templates as function?
+** Possible with "template template". Out of scope of this project.
+*/
 
 #endif

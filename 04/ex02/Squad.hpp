@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 14:56:13 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/05/19 14:56:13 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/07/15 07:49:46 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class Squad: public ISquad
 	public:
 		Squad(void);
 		Squad(Squad const & src);
-		Squad & operator = (Squad const & rhs);
+		Squad & operator= (Squad const & rhs);
 		virtual ~Squad(void);
 		virtual int getCount() const;
 		virtual ISpaceMarine* getUnit(int) const;

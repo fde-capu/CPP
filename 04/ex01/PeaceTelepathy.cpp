@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Peon.hpp                                           :+:      :+:    :+:   */
+/*   PeaceTelepathy.cpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/19 14:55:02 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/07/14 09:15:27 by fde-capu         ###   ########.fr       */
+/*   Created: 2021/07/14 14:52:40 by fde-capu          #+#    #+#             */
+/*   Updated: 2021/07/14 16:59:54 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PEON_HPP
-# define PEON_HPP
+#include "PeaceTelepathy.hpp"
+#include <iostream>
 
-# include <string>
-# include "Victim.hpp"
+PeaceTelepathy::PeaceTelepathy()
+: AWeapon("Peace Telepathy", 40, 0)
+{}
 
-class Peon: public Victim
+void PeaceTelepathy::attack() const
 {
-	public:
-		Peon(std::string u_name);
-		virtual ~Peon(void);
-		virtual void getPolymorphed(void) const;
-};
-
-#endif
+	std::cout << "* ...ooOoOooOhmMmmMmm... *" << std::endl;
+}

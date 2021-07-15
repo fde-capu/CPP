@@ -1,34 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Victim.hpp                                         :+:      :+:    :+:   */
+/*   HypnoGem.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/19 14:55:02 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/07/14 09:16:32 by fde-capu         ###   ########.fr       */
+/*   Created: 2021/07/15 09:46:54 by fde-capu          #+#    #+#             */
+/*   Updated: 2021/07/15 10:48:35 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef VICTIM_HPP
-# define VICTIM_HPP
+#ifndef HYPNOGEM_HPP
+# define HYPNOGEM_HPP
+# include "AMateria.hpp"
 
-# include <iostream>
-# include <string>
-
-class Victim
+class HypnoGem: public AMateria
 {
-	private:
-		Victim(void) {};
 	public:
-		std::string name; // Public for demo purposes.
-		Victim(std::string u_name);
-		Victim(Victim const & src);
-		Victim & operator= (Victim const & rhs);
-		virtual ~Victim(void);
-		virtual void getPolymorphed(void) const;
+		HypnoGem(void);
+		virtual HypnoGem * clone () const;
+		virtual void use(ICharacter& target);
 };
-
-std::ostream & operator<< (std::ostream & o, Victim const & i);
 
 #endif
