@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 14:56:22 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/05/19 14:56:22 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/07/15 07:57:50 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,15 @@ class MateriaSource: public IMateriaSource
 		AMateria * known[4];
 		int slot;
 	public:
-		virtual void learnMateria(AMateria*);
-		virtual AMateria* createMateria(std::string const & type);
 		MateriaSource(void);
 		MateriaSource(MateriaSource const & src);
-		MateriaSource & operator = (MateriaSource const & rhs);
-		AMateria * getKnown(int i) const;
+		MateriaSource & operator= (MateriaSource const & rhs);
 		virtual ~MateriaSource();
+		virtual void learnMateria(AMateria*);
+		virtual AMateria* createMateria(std::string const & type);
+		AMateria * getKnown(int i) const;
 };
 
-std::ostream & operator << (std::ostream & o, MateriaSource const & self);
+std::ostream & operator<< (std::ostream & o, MateriaSource const & self);
 
 #endif

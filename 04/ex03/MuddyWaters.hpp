@@ -1,34 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Squad.hpp                                          :+:      :+:    :+:   */
+/*   MuddyWaters.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/19 14:56:13 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/07/15 07:49:46 by fde-capu         ###   ########.fr       */
+/*   Created: 2021/07/15 09:51:29 by fde-capu          #+#    #+#             */
+/*   Updated: 2021/07/15 10:48:43 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SQUAD_HPP
-# define SQUAD_HPP
-# include "ISquad.hpp"
-# include <iostream>
+#ifndef MUDDYWATERS_HPP
+# define MUDDYWATERS_HPP
+# include "AMateria.hpp"
 
-class Squad: public ISquad
+class MuddyWaters: public AMateria
 {
-	private:
-		int n_units;
-		ISpaceMarine ** unit;
-		void del_units();
 	public:
-		Squad(void);
-		Squad(Squad const & src);
-		Squad & operator= (Squad const & rhs);
-		virtual ~Squad(void);
-		virtual int getCount() const;
-		virtual ISpaceMarine* getUnit(int) const;
-		virtual int push(ISpaceMarine*);
+		MuddyWaters(void);
+		virtual MuddyWaters * clone () const;
+		virtual void use(ICharacter& target);
 };
 
 #endif
