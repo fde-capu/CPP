@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 14:56:22 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/07/15 17:20:15 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/07/15 20:06:05 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,10 +150,11 @@ int main()
 		std::cout << "[ A ] " << *bob << std::endl;
 		bob->unequip(0); // Materia at slot 0 is unattached. Slot [1] stays. materia_save_2. (*)
 		std::cout << "[ B ] " << *bob << std::endl;
-//		AMateria * materia_save_3 = materia; // Save. (*)
+		AMateria * materia_save_3 = materia; // Save. (*)
 		materia = mat_src->createMateria("cure");
 		bob->equip(materia); // New equip at first free slot (0 in this case).
 		std::cout << "[ C ] " << *bob << std::endl;
+		AMateria * materia_save_4 = materia; // Save. (*)
 
 		std::cout << "========== Custom Materials =========" << std::endl;
 		// For the demo of max 4 slots per Character, we need material diversity:
@@ -240,7 +241,9 @@ int main()
 		delete custom_materials;
 		delete materia_save_1;
 		delete materia_save_2;
-//		delete materia_save_3;
+		delete materia_save_3;
+		delete materia_save_4;
+		delete cure;
 		// No leaks!
 	}
 	return 0;
