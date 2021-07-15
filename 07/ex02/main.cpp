@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 16:40:55 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/06/29 18:06:33 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/07/11 09:52:54 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,7 @@ int main(int, char**)
 	{
 		Array<int> foo1 = Array<int>();
 		std::cout << "foo1.size(): " << foo1.size() << std::endl;
-		Array<int> foo2 = Array<int>(5);
-		std::cout << "foo2.size(): " << foo2.size() << std::endl;
+		// Array<int> foo2 = Array<int>(-5); // -Wconversion prevent.
 		for (size_t i = 0; i < 5; i++)
 			std::cout << "foo2[" << i << "]: " << foo2[i] << std::endl;
 		try
