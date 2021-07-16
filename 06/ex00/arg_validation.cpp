@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 12:28:26 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/06/10 21:45:08 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/07/16 11:22:33 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int validate_args(const int argc, const char ** argv)
 	if (argc != 2)
 		return log_ret("Bad argument count.", 0);
 	if (!get_literal_type(argv[1]))
-		return log_ret("Invalid input.\nThis literal must "
+		return log_ret("Invalid input.\nLiteral must "
 			"belong to one of the following a scalar types: "
 			"char, int, float or double.", 0);
 	return 1;

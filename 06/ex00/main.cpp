@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 12:16:42 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/06/10 21:53:23 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/07/16 11:20:35 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ int main(const int argc, const char * argv[])
 	if (!validate_args(argc, argv))
 		return 1;
 	int my_type = get_literal_type(argv[1]);
-	plot_type(my_type); // Bonus.
+	// plot_type(my_type); // Bonus.
 	LiteralInRightType literal = string_to_right_type(argv[1]);
 	switch (get_literal_type(argv[1]))
 	{

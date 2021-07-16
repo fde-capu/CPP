@@ -1,4 +1,10 @@
 #!/bin/sh
+
+#
+# 42 CPP Module 06 ex00 Test
+# fde-capu, 202107
+#
+
 BIN=$1;
 set -f ;
 test()
@@ -6,7 +12,6 @@ test()
 	set +f ;
 	ARG=$1 ;
 	echo "\n./$BIN $1";
-	echo ">> $1 <<" ;
 	./$BIN $1 ;
 	set -f ;
 }
@@ -34,7 +39,7 @@ test -42.4f ;
 test -42.4 ;
 test  42.42 ; # header.h: #define PRECISION 1
 test -42.000f ;
-test * ; // thanks to set -f
+test * ; # thanks to `set -f` (disable filename expansion)
 test 'X' ;
 test X ;
 test "X" ;
