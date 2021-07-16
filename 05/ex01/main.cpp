@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 14:56:53 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/07/05 12:53:27 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/07/16 09:27:57 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,7 +142,7 @@ int main()
 	std::cout << std::endl << "L" << std::endl;
 	Form f_hi_lo("Form high, low", -7, 777);
 	std::cout << f_hi_lo << std::endl;
-	std::cout << std::endl << "M // Keep this form in maind: _to_sign:150 (anyone), _to_exec:1 (only maximum authority)" << std::endl;
+	std::cout << std::endl << "M // Keep this form in mind: _to_sign:150 (anyone), _to_exec:1 (only maximum authority)" << std::endl;
 	Form f_lo_hi("Form low, high", 1000, -1000);
 	std::cout << f_lo_hi << std::endl;
 
