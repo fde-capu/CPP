@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/16 11:34:47 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/07/16 11:34:47 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/07/16 18:40:33 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,7 @@ void hex_dump(const s_block &block_as_struct)
 		unsigned hex_val = static_cast<unsigned char>(*(byte + i));
 		dump << std::setw(2) << hex_val << " ";
 	}
-	dump << std::endl;
-	std::cout << dump.str();
+	std::cout << dump.str() << std::endl;
 	return ;
 }
 

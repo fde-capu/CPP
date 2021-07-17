@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/16 11:34:47 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/07/16 11:34:47 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/07/17 09:00:40 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,22 +19,21 @@ int random_int(int min, int max);
 
 struct s_block
 {
-	std::string * str_a;
-	int r_int;
-	std::string * str_b;
+	std::string * str_a; // 8 bytes.
+	int r_int; // 4 bytes;
+	std::string * str_b; // 8 more bytes. Nhac!
 };
 
-class Data
+class Data: public s_block
 {
-	private:
-		std::string * str_a; // 8 bytes.
-		int r_int; // 4 bytes;
-		std::string * str_b; // 8 more bytes. Nhac!
 	public:
 		Data(void);
 		Data(Data const & src);
-		Data & operator = (const Data &);
+		Data & operator= (const Data &);
 		~Data(void);
+		bool operator== (const Data &);
 };
+
+std::ostream &	operator<< (std::ostream & o, Data const & i);
 
 #endif

@@ -6,13 +6,13 @@
 #    By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/16 11:34:47 by fde-capu          #+#    #+#              #
-#    Updated: 2021/07/16 11:34:47 by fde-capu         ###   ########.fr        #
+#    Updated: 2021/07/17 09:27:28 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	serialize
-SRCS	=	main.cpp Data.cpp plot.cpp CoplienTest.cpp
-HEAD	=	Data.hpp header.hpp CoplienTest.hpp
+SRCS	=	main.cpp Data.cpp plot.cpp
+HEAD	=	Data.hpp header.hpp
 SHELL	=	/bin/sh
 CC		=	clang++ -std=c++98
 CCFLAGS	=	-Wall -Werror -Wextra -Wno-unused -Wconversion -g

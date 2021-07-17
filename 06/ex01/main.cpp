@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/16 11:34:47 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/07/16 11:41:05 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/07/17 09:27:37 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 ** alignment.
 */
 
-#include "CoplienTest.hpp"
 #include "header.hpp"
 #include "Data.hpp"
 #include <iostream>
@@ -26,6 +25,7 @@
 #include <cstdlib>
 #include <sstream>
 #include <limits.h>
+#include <stdint.h>
 
 std::string random_string(std::string fixed, int len)
 {
@@ -41,36 +41,95 @@ int random_int(int min, int max)
 	return min + (rand() % (max - min + 1));
 }
 
-void * serialize(void)
+uintptr_t serialize(Data* ptr)
 {
-	s_block * block = new s_block();
-	block->str_a = new std::string(random_string("StringA:", 5));
-	block->r_int = random_int(4200, 4242);
-	block->str_b = new std::string(random_string("StringB:", 5));
-	return block;
+	return reinterpret_cast<uintptr_t>(ptr);
 }
 
-Data * deserialize(void * raw)
+Data * deserialize(uintptr_t raw)
 {
 	return reinterpret_cast<Data *>(raw);
 }
 
+Data * deserialize_new(uintptr_t raw)
+{
+	return new Data(*reinterpret_cast<Data *>(raw));
+}
+
 int main()
 {
-	srand(static_cast<unsigned int>(time(0)));
+	srand(static_cast<unsigned int>(time(0))); // Seed.
 
-	void * block = serialize();
-	plot(block, "block (heap)");
+	std::cout << "Do not forget to include the Data structure you used." << std::endl << std::endl;
+	std::cout << "```" << std::endl;
+	system("cat Data.hpp | tail -n 20 | head -n -4");
+	std::cout << "```" << std::endl;
 
-	Data * data = new Data();
-	plot(data, "data (defaults, heap)");
-	Data * data_save_for_deletion = data;
-	data = deserialize(block); // `data` is flashed over serialized `block`.
-	plot(data, "data (deserialized, heap)");
+	std::cout << "### Data * deserialize(uintptr_t raw);" << std::endl;
+	{
+		std::cout << "You must create a valid data structure." << std::endl;
+		Data * data = new Data();
+		plot(data, "data");
 
-	delete data_save_for_deletion;
-	delete data; // Since is same address, deletes block.
+		std::cout << "Take a Data address use serialize on it." << std::endl;
+		uintptr_t address = serialize(data);
+		std::cout << "uintptr_t address == " << address << std::endl << std::endl;
 
-	CoplienTestExec<Data>(); // Bonus.
+		std::cout << "Send the return value in deserialize." << std::endl;
+		std::cout << "Data * re_data = deserialize(" << address << ");" << std::endl << std::endl;
+		Data * re_data = deserialize(address);
+		plot(re_data, "re_data");
+
+		std::cout << "Check if the return value is equal to the first pointer." << std::endl;
+
+		std::cout << "(data == re_data) == ("
+			<< data << " == " << re_data << ") == "
+			<< (data == re_data) << std::endl;
+
+		std::cout << "(*data == *re_data) == ("
+			<< *data << " == " << *re_data << ") == "
+			<< (*data == *re_data) << std::endl; // `Data::operator==` implemented.
+
+		std::cout << "uintptr_t new_address = serialize(re_data);" << std::endl;
+		uintptr_t new_address = serialize(re_data);
+		std::cout << "uintptr_t new_address == " << new_address << std::endl << std::endl;
+
+		delete data;
+		// delete re_data; // re_data points to same data!
+	}
+
+	std::cout << "### Data * deserialize_new(uintptr_t raw);" << std::endl << std::endl;
+	{
+		std::cout << "You must create a valid data structure." << std::endl;
+		Data * data = new Data();
+		plot(data, "data");
+
+		std::cout << "Take a Data address use serialize on it." << std::endl;
+		uintptr_t address = serialize(data);
+		std::cout << "uintptr_t address == " << address << std::endl << std::endl;
+
+		std::cout << "Send the return value in deserialize." << std::endl;
+		std::cout << "Data * re_data = deserialize(" << address << ");" << std::endl << std::endl;
+		Data * re_data = deserialize_new(address);
+		plot(re_data, "re_data");
+
+		std::cout << "Check if the return value is equal to the first pointer." << std::endl;
+
+		std::cout << "(data == re_data) == ("
+			<< data << " == " << re_data << ") == "
+			<< (data == re_data) << std::endl;
+
+		std::cout << "(*data == *re_data) == ("
+			<< *data << " == " << *re_data << ") == "
+			<< (*data == *re_data) << std::endl;
+
+		std::cout << "uintptr_t new_address = serialize(re_data);" << std::endl;
+		uintptr_t new_address = serialize(re_data);
+		std::cout << "uintptr_t new_address == " << new_address << std::endl << std::endl;
+
+		delete data;
+		delete re_data;
+	}
+
 	return 0;
 }
