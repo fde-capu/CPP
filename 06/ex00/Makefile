@@ -6,13 +6,13 @@
 #    By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/03 12:15:56 by fde-capu          #+#    #+#              #
-#    Updated: 2021/06/10 20:11:44 by fde-capu         ###   ########.fr        #
+#    Updated: 2021/07/17 16:46:48 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	convert
 ARGS	=	0
-TEST	=	./test.sh $(NAME)
+TEST	=	./test.sh
 SRCS	=	main.cpp arg_validation.cpp ft_cpp.cpp helpers.cpp
 HEAD	=	header.hpp ft_cpp.hpp
 SHELL	=	/bin/sh

@@ -5,7 +5,7 @@
 # fde-capu, 202107
 #
 
-BIN=$1;
+BIN=convert;
 set -f ;
 test()
 {

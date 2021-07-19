@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 12:16:42 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/07/16 11:20:35 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/07/17 17:46:22 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ bool is_impossible(T checker, A against)
 {
 	(void)against;
 	return checker != 0 && (checker != checker
-	|| checker < std::numeric_limits<A>::min() 
-	|| checker > std::numeric_limits<A>::max()) ? 1 : 0;
+	|| static_cast<float>(checker) < static_cast<float>(std::numeric_limits<A>::min())
+	|| static_cast<float>(checker) > static_cast<float>(std::numeric_limits<A>::max())) ? 1 : 0;
 }
 
 template<typename T>

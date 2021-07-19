@@ -6,7 +6,7 @@
 #    By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/17 09:33:18 by fde-capu          #+#    #+#              #
-#    Updated: 2021/07/17 09:39:11 by fde-capu         ###   ########.fr        #
+#    Updated: 2021/07/17 17:51:52 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ SRCS	=	main.cpp
 HEAD	=	Base.hpp A.hpp B.hpp C.hpp
 SHELL	=	/bin/sh
 CC		=	clang++ -std=c++98
-CCFLAGS	=	-Wall -Werror -Wextra -g
+CCFLAGS	=	-Wall -Werror -Wextra -Wno-unused -Wconversion -g
 OBJS	=	$(SRCS:.cpp=.o)
 VAL		=	valgrind
 VALFLAG	=	--tool=memcheck \
