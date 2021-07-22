@@ -6,7 +6,7 @@
 #    By: fde-capu </var/mail/fde-capu>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/23 10:03:19 by fde-capu          #+#    #+#              #
-#    Updated: 2021/06/23 10:32:20 by fde-capu         ###   ########.fr        #
+#    Updated: 2021/07/20 16:13:06 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ SRCS	=	main.cpp
 HEAD	=	whatever.hpp
 SHELL	=	/bin/sh
 CC		=	clang++ -std=c++98
-CCFLAGS	=	-Wall -Werror -Wextra -g
+CCFLAGS	=	-Wall -Werror -Wextra -Wconversion -g
 OBJS	=	$(SRCS:.cpp=.o)
 VAL		=	valgrind
 VALFLAG	=	--tool=memcheck \

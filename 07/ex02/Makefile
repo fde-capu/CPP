@@ -6,12 +6,12 @@
 #    By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/29 16:40:53 by fde-capu          #+#    #+#              #
-#    Updated: 2021/07/09 15:56:17 by fde-capu         ###   ########.fr        #
+#    Updated: 2021/07/22 11:34:42 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	array
-SRCS	=	main.cpp
+SRCS	=	main.cpp mymain.cpp
 HEAD	=	Array.hpp
 SHELL	=	/bin/sh
 CC		=	clang++ -std=c++98 -Wconversion
@@ -40,4 +40,3 @@ t:			all
 	./$(NAME)
 v:			all
 	$(VAL) ./$(NAME)
-

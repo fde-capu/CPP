@@ -6,7 +6,7 @@
 /*   By: fde-capu </var/mail/fde-capu>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 10:50:08 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/07/07 11:12:00 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/07/20 19:05:37 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 #include <iostream>
 #include <sstream>
 #include <iomanip>
+
+/*
+** Demo functions for testing:
+*/
 
 void void_function_no_args()
 {
@@ -29,16 +33,20 @@ int int_function_no_args()
 }
 
 template<typename T>
-void void_function_argtype_equals(T x)
+void void_templated_fun_argtype_equals(T x)
 {
-	std::cout << "void_function_argtype_equals(" << x << "::" << &x << ") called." << std::endl;
+	// Shows local scope address (x is a copy of x).
+	void * address = static_cast<void *>(&x);
+	std::cout << "void_templated_fun_argtype_equals(" << x << "::" << address << ") called." << std::endl;
 	return ;
 }
 
 template<typename T>
-void void_function_argtype_ref_to_type_equals(T & x)
+void void_templated_fun_argtype_ref_to_same(T & x)
 {
-	std::cout << "void_function_argtype_ref_to_type_equals(" << x << "::" << &x << ") called." << std::endl;
+	// Shows reference address.
+	void * address = static_cast<void *>(&x);
+	std::cout << "void_templated_fun_argtype_ref_to_same(" << x << "::" << address << ") called." << std::endl;
 	return ;
 }
 
@@ -70,9 +78,9 @@ void test(T * array, size_t array_length, std::string title)
 	std::cout << "---" << std::endl;
 	::iter(array, array_length, int_function_no_args);
 	std::cout << "---" << std::endl;
-	::iter(array, array_length, void_function_argtype_equals<T>);
+	::iter(array, array_length, void_templated_fun_argtype_equals<T>);
 	std::cout << "---" << std::endl;
-	::iter(array, array_length, void_function_argtype_ref_to_type_equals<T>);
+	::iter(array, array_length, void_templated_fun_argtype_ref_to_same<T>);
 	std::cout << "---" << std::endl;
 	::iter(array, array_length, hex_dump<T>);
 	std::cout << "===" << std::endl;
@@ -92,12 +100,17 @@ int main()
 	{
 		const size_t array_length = 4;
 		int array[array_length] = {42, 142, 123, -42};
-		test(array, array_length, "int array[4]");
+		test(array, array_length, "int array[4] = {42, 142, 123, -42}");
+	}
+	{
+		const size_t array_length = 4;
+		char array[array_length] = {'4', '2', 'S', 'P'};
+		test(array, array_length, "char array[4] = {'4', '2', 'S', 'P'}");
 	}
 	{
 		const size_t array_length = 5;
 		std::string array[array_length] = {"ABC", "forty two", "anything", "", "0"};
-		test(array, array_length, "std::string array[5]");
+		test(array, array_length, "std::string array[5] = {\"ABC\", \"forty two\", \"anything\", \"\", \"0\"}");
 	}
 	{
 		int arr_a[3] = {8, 1, 6};
@@ -105,30 +118,29 @@ int main()
 		int arr_c[3] = {4, 9, 2};
 		const size_t array_length = 3;
 		int * array[array_length] = {arr_a, arr_b, arr_c};
-		test(array, array_length, "Array of arrays");
+		test(array, array_length, "Array of arrays {arr_a, arr_b, arr_c}");
 	}
 	{
 		const size_t array_length = 3;
 		int (*array[array_length])() = {if_a, if_b, if_c};
-		test(array, array_length, "Array of int functions");
+		test(array, array_length, "Array of int functions {if_a, if_b, if_c}");
 	}
 	{
 		const size_t array_length = 3;
 		void (*array[array_length])() = {vf_a, vf_b, vf_c};
-		test(array, array_length, "Array of void functions");
+		test(array, array_length, "Array of void functions {vf_a, vf_b, vf_c}");
 	}
 	{
 		std::cout << "More tests" << std::endl << "---" << std::endl;
 		const size_t array_length = 4;
 		int array[array_length] = {42, 142, 123, -42};
-		// For sake of explanation:
 		// subject.pdf states that iter() should work on instantiated templates.
-		// ::iter(array, array_length, hex_dump); // This doesn't work...
+		// ::iter(array, array_length, hex_dump); // This would not work...
 		::iter(array, array_length, hex_dump<int>); // ...this is ok, instantiated.
 		std::cout << "---" << std::endl;
-		// In the following overloads, the function is instantiated
-		// with another type than array is.
-		::iter(array, array_length, void_function_argtype_ref_to_type_equals<char>);
+		// In the two following calls, the instantiated function has as
+		// argument a reference to another type.
+		::iter(array, array_length, void_templated_fun_argtype_ref_to_same<char>);
 		std::cout << "---" << std::endl;
 		::iter(array, array_length, hex_dump<char>);
 	}

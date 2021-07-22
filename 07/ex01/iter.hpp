@@ -6,7 +6,7 @@
 /*   By: fde-capu </var/mail/fde-capu>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 10:50:26 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/07/07 11:13:19 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/07/20 19:04:39 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 template<typename T, typename F>
 void iter(T * array, size_t array_length, F fun)
 {
+	std::cout << "[ A ]" << std::endl;
 	(void)array;
 	for (size_t i = 0; i < array_length; i++)
 		fun();
@@ -41,6 +42,7 @@ void iter(T * array, size_t array_length, F fun)
 template<typename T, typename F>
 void iter(T * array, size_t array_length, F fun(T))
 {
+	std::cout << "[ B ]" << std::endl;
 	for (size_t i = 0; i < array_length; i++)
 		fun(array[i]);
 	return ;
@@ -49,26 +51,30 @@ void iter(T * array, size_t array_length, F fun(T))
 /*
 ** This function is called whenever the passed function "fun" has one argument
 ** consisting of a referente to "something" of the same type of the array.
-** This also does not modify the original array, for this was not mentioned.
+** This also does not modify the original array, because no one asked.
 */
 template<typename T, typename F>
 void iter(T * array, size_t array_length, F fun(T &))
 {
+	std::cout << "[ C ]" << std::endl;
 	for (size_t i = 0; i < array_length; i++)
 		fun(array[i]);
 	return ;
 }
 
 /*
-** Now, if the function gets as argument something another type than the array.
-** Seems useless (but might not be). It also does not takt array[i] value into
-** consideration, and does not modify the array.
+** In this case, the function has one arument of another type than the array.
+** Seems useless, but might not be. It also does not take array[i] value into
+** consideration, and does not modify the array. For this case, it is
+** necessary that the iter function instantiates some variable of type A
+** to pass as argument.
 */
-template<typename T, typename F, typename FT>
-void iter(T * array, size_t array_length, F fun(FT &))
+template<typename T, typename F, typename A>
+void iter(T * array, size_t array_length, F fun(A &))
 {
+	std::cout << "[ D ]" << std::endl;
 	(void)array;
-	FT foo = 42;
+	A foo = 42;
 	for (size_t i = 0; i < array_length; i++)
 		fun(foo);
 	return ;
