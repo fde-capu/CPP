@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 16:42:38 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/07/22 13:45:23 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/07/23 09:24:01 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,52 +40,52 @@ template<typename T>
 class Array
 {
 	private:
-		size_t _size;
 		T * element;
-	public:
-		Array(void) : _size(0), element(0) {};
-
-		Array(unsigned int n)
+		size_t _size;
+		void instantiate(unsigned int n)
 		{
 			try
 			{
 				_size = static_cast<size_t>(n);
 				element = new T[_size];
+				for (size_t i = 0; i < _size; i++)
+					element[i] = 0;
 			}
-			catch(std::exception&e)
+			catch(const std::exception&e)
 			{
-				// std::cout << e.what() << std::endl;
 				throw ArrayException::Error();
 			}
-			element[0] = 7;
-//			element[4] = 42;
-		}
+		};
+
+	public:
+		Array(void) : element(0), _size(0) {};
+
+		Array(unsigned int n) {	instantiate(n);	};
 
 		Array(Array const & src) { *this = src; };
 
 		Array &	operator= (Array const & rhs) {
-			_size = rhs.size();
-			for (size_t i = 0; i < rhs.size(); i++)
-			{
-//				setElement(i, rhs.getElement(i));
-			}
+			if (this == &rhs) return *this;
+			instantiate(static_cast<unsigned int>(rhs.size()));
+			for (size_t i = 0; i < _size; i++)
+				element[i] = rhs[i];
 			return *this;
 		};
 
-		~Array(void) {};
-		size_t size() const { return _size; };
-		T operator[] (size_t const u_index) const
+		~Array(void) { delete [] element; };
+
+		T & operator[] (size_t const u_index) const
 		{
-			if (u_index < 0 || u_index > _size)
+			if (u_index < 0 || u_index >= _size)
 				throw ArrayException::IndexOutOfRange();
 			return element[static_cast<size_t>(u_index)];
 		}
 
+		size_t size() const { return _size; };
 };
 
-//std::ostream &	operator << (std::ostream & o, Array const & i);
 template<typename T>
-std::ostream & operator << (std::ostream & o, Array<T> const & self)
+std::ostream & operator<< (std::ostream & o, Array<T> const & self)
 {
 	o << "::Array:(" << self.size() << "):{";
 	for (size_t i = 0; i < self.size(); i++)

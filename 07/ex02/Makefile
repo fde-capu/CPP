@@ -6,7 +6,7 @@
 #    By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/29 16:40:53 by fde-capu          #+#    #+#              #
-#    Updated: 2021/07/22 11:34:42 by fde-capu         ###   ########.fr        #
+#    Updated: 2021/07/23 07:22:04 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME	=	array
 SRCS	=	main.cpp mymain.cpp
 HEAD	=	Array.hpp
 SHELL	=	/bin/sh
-CC		=	clang++ -std=c++98 -Wconversion
+CC		=	clang++ -std=c++98
 CCFLAGS	=	-Wall -Werror -Wextra -g
 OBJS	=	$(SRCS:.cpp=.o)
 VAL		=	valgrind

@@ -1,8 +1,8 @@
 int mymain(); // Added.
 
 #include <iostream>
-//#include <Array.hpp>
-#include "Array.hpp" // Corrected.
+#include "Array.hpp" // Corrected <> to "".
+#include <cstdlib> // Needed for srand.
 
 #define MAX_VAL 750
 int main(int, char**)
@@ -52,8 +52,9 @@ int main(int, char**)
 //        numbers[i] = rand();
 //    }
 //    delete [] mirror;//
-
-	mymain(); // Added.
-
-//    return 0;
+//
+//	// Expected output is std::exception twice (out of range).
+//
+	mymain(); // Added my own tests.
+    return 0;
 }
