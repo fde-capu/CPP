@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 16:42:38 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/07/23 09:24:01 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/07/23 14:39:52 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ class Array
 			}
 			catch(const std::exception&e)
 			{
+				std::cout << "!!" << e.what() << std::endl;
 				throw ArrayException::Error();
 			}
 		};

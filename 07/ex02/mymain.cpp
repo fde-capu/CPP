@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/22 11:33:57 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/07/23 09:32:02 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/07/23 14:31:45 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,13 @@ int mymain()
 	afloat[2] = 42.042f;
 	std::cout << " ------> (afloat) " << afloat << std::endl;
 
-	std::cout << std::endl << "[ I ] Out of range." << std::endl;
+	std::cout << std::endl << "[ HD ] Other types, std::string, complex." << std::endl;
+	Array<std::string>str = Array<std::string>(5);
+	std::cout << " ------> (str) " << str << std::endl;
+	str[2] = "Don't Panic";
+	std::cout << " ------> (str) " << str << std::endl;
+
+	std::cout << std::endl << "[ Z ] Out of range." << std::endl;
 	std::cout << "// x[7] = 11;" << std::endl;
 	// x[7] = 11;
 	std::cout << "// x[-1] = 7;" << std::endl;
