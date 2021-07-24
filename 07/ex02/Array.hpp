@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 16:42:38 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/07/23 14:39:52 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/07/24 16:48:52 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,11 @@ class Array
 				_size = static_cast<size_t>(n);
 				element = new T[_size];
 				for (size_t i = 0; i < _size; i++)
-					element[i] = 0;
+					element[i] = T();
 			}
 			catch(const std::exception&e)
 			{
-				std::cout << "!!" << e.what() << std::endl;
+				std::cout << "std::exception::" << e.what() << std::endl;
 				throw ArrayException::Error();
 			}
 		};

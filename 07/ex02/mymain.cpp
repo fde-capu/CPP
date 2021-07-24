@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/22 11:33:57 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/07/23 14:31:45 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/07/24 16:49:53 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ int mymain()
 	std::cout << " ------> y[0] : " << y[0] << std::endl;
 
 
-	std::cout << std::endl << "[ HA ] Other types. Stack." << std::endl;
+	std::cout << std::endl << "[ H ] Other types. Stack." << std::endl;
 	std::cout << "// Character 0 is NULL, hence the line breaks." << std::endl;
 	std::cout << " # Array<char>c = new Array<char>(4);" << std::endl;
 	Array<char>c = Array<char>(4);
@@ -90,7 +90,7 @@ int mymain()
 	std::cout << " ------> (c) " << c << std::endl;
 
 
-	std::cout << std::endl << "[ HB ] Other types. Heap." << std::endl;
+	std::cout << std::endl << "[ I ] Other types. Heap." << std::endl;
 	std::cout << " # Array<char>*cheap = new Array<char>(4);" << std::endl;
 	Array<char>*cheap = new Array<char>(4);
 	std::cout << " ------> (c) " << *cheap << std::endl;
@@ -101,23 +101,23 @@ int mymain()
 	std::cout << " ------> (c) " << *cheap << std::endl;
 	delete cheap;
 
-	std::cout << std::endl << "[ HC ] Other types, float for example." << std::endl;
+	std::cout << std::endl << "[ J ] Other types, float for example." << std::endl;
 	Array<float>afloat = Array<float>(5);
 	std::cout << " ------> (afloat) " << afloat << std::endl;
 	afloat[2] = 42.042f;
 	std::cout << " ------> (afloat) " << afloat << std::endl;
 
-	std::cout << std::endl << "[ HD ] Other types, std::string, complex." << std::endl;
+	std::cout << std::endl << "[ K ] Other types, std::string, complex." << std::endl;
 	Array<std::string>str = Array<std::string>(5);
 	std::cout << " ------> (str) " << str << std::endl;
 	str[2] = "Don't Panic";
 	std::cout << " ------> (str) " << str << std::endl;
 
 	std::cout << std::endl << "[ Z ] Out of range." << std::endl;
-	std::cout << "// x[7] = 11;" << std::endl;
-	// x[7] = 11;
-	std::cout << "// x[-1] = 7;" << std::endl;
-	// x[-1] = 7;
+	std::cout << "// x[77] = 11;" << std::endl;
+	try { x[77] = 11; } catch(const std::exception&e) { std::cout << e.what() << std::endl; }
+	std::cout << "// x[-1] = 66;" << std::endl;
+	try { x[-1] = 66; } catch(const std::exception&e) { std::cout << e.what() << std::endl; }
 
 	std::cout << std::endl << std::endl;
 	return 0;
