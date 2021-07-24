@@ -6,13 +6,14 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/22 11:33:57 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/07/24 16:49:53 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/07/24 17:21:00 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <climits>
 #include "Array.hpp"
+#include "Awesome.hpp"
 
 int mymain()
 {
@@ -112,6 +113,13 @@ int mymain()
 	std::cout << " ------> (str) " << str << std::endl;
 	str[2] = "Don't Panic";
 	std::cout << " ------> (str) " << str << std::endl;
+
+	std::cout << std::endl << "[ L ] Othere types, Awesome from ex00 mixed with ex01, complex." << std::endl;
+	Array<Awesome>gr8 = Array<Awesome>(5);
+	std::cout << " ------> " << gr8 << std::endl;
+	gr8[2] = 555;
+	std::cout << " ------> " << gr8 << std::endl;
+	std::cout << " ------> " << gr8[2] << std::endl;
 
 	std::cout << std::endl << "[ Z ] Out of range." << std::endl;
 	std::cout << "// x[77] = 11;" << std::endl;
