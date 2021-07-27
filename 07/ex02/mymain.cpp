@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/22 11:33:57 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/07/24 17:21:00 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/07/27 11:37:50 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ int mymain()
 
 
 	std::cout << std::endl << "[ H ] Other types. Stack." << std::endl;
-	std::cout << "// Character 0 is NULL, hence the line breaks." << std::endl;
+	std::cout << "// Character 0 is NULL, hence the line breaks depending on shell interface." << std::endl;
 	std::cout << " # Array<char>c = new Array<char>(4);" << std::endl;
 	Array<char>c = Array<char>(4);
 	std::cout << " ------> (c) " << c << std::endl;

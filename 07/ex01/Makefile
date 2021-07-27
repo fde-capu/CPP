@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: fde-capu </var/mail/fde-capu>              +#+  +:+       +#+         #
+#    By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/06/23 10:49:42 by fde-capu          #+#    #+#              #
-#    Updated: 2021/07/23 12:57:04 by fde-capu         ###   ########.fr        #
+#    Created: 2021/07/27 10:44:34 by fde-capu          #+#    #+#              #
+#    Updated: 2021/07/27 10:44:48 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ SRCS	=	main.cpp mymain.cpp
 HEAD	=	iter.hpp head.hpp
 SHELL	=	/bin/sh
 CC		=	clang++ -std=c++98
-CCFLAGS	=	-Wall -Werror -Wextra -g
+CCFLAGS	=	-Wall -Werror -Wextra -Wconversion -g
 OBJS	=	$(SRCS:.cpp=.o)
 VAL		=	valgrind
 VALFLAG	=	--tool=memcheck \

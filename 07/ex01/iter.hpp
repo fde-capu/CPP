@@ -6,7 +6,7 @@
 /*   By: fde-capu </var/mail/fde-capu>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 10:50:26 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/07/23 14:22:37 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/07/27 11:31:10 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,42 +34,13 @@ void iter(T * array, const size_t array_length, F fun)
 }
 
 /*
-** This works if the argument of fun is of the same type as the array.
-** So the fun is called each with each array value as argument (seems logical).
-** However, it is not mentioned that the function should be able
-** to modify the array values.
+** This catches all cases of a single-argument function.
+** Array value is not changed, because no one asked.
 */
-template<typename T, typename F>
-void iter(T * array, const size_t array_length, F fun(T))
+template<typename T, typename F, typename FA>
+void iter(T * array, const size_t array_length, F fun(FA))
 {
 //	std::cout << "[ B ]" << std::endl;
-	for (size_t i = 0; i < array_length; i++)
-		fun(array[i]);
-	return ;
-}
-
-/*
-** This function is called whenever the passed function "fun" has one argument
-** consisting of a referente to "something" of the same type of the array.
-** This also does not modify the original array, because no one asked.
-*/
-template<typename T, typename F>
-void iter(T * array, const size_t array_length, F fun(T &))
-{
-//	std::cout << "[ C ]" << std::endl;
-	for (size_t i = 0; i < array_length; i++)
-		fun(array[i]);
-	return ;
-}
-
-/*
-** In case of fun having and argument as const T,
-** (remember `const int` is not same type as `int`), this function calls.
-*/
-template<typename T, typename F>
-void iter(T * array, const size_t array_length, F fun(const T &))
-{
-//	std::cout << "[ D ]" << std::endl;
 	for (size_t i = 0; i < array_length; i++)
 		fun(array[i]);
 	return ;

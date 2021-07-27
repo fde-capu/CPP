@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/23 12:57:12 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/07/23 14:22:20 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/07/27 11:36:11 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,13 @@ void mymain()
 	}
 	{
 		const size_t array_length = 5;
-		std::string array[array_length] = {"ABC", "forty two", "anything", "", "0"};
+		std::string array[array_length] = {
+			"ABC",
+			"forty two",
+			"anything",
+			"",
+			"0"
+			};
 		test(array, array_length, "std::string array[5] = {\"ABC\", \"forty two\", \"anything\", \"\", \"0\"}");
 	}
 	{
