@@ -6,7 +6,7 @@
 #    By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/27 17:07:23 by fde-capu          #+#    #+#              #
-#    Updated: 2021/07/28 14:46:17 by fde-capu         ###   ########.fr        #
+#    Updated: 2021/07/28 16:00:46 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,9 +14,7 @@ NAME	=	easy_find
 SRCS	=	main.cpp
 HEAD	=	easyfind.hpp
 SHELL	=	/bin/sh
-CC		=	$(CC98)
-CC11	=	clang++
-CC98	=	clang++ -std=c++98
+CC		=	clang++ -std=c++98
 CCFLAGS	=	-Wall -Werror -Wextra -Wconversion -g
 OBJS	=	$(SRCS:.cpp=.o)
 VAL		=	valgrind
