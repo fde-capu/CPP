@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/28 16:19:10 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/07/29 10:54:43 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/07/29 11:07:06 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -175,6 +175,4 @@ int main()
 	dup3->showElements();
 
 	delete dup3;
-
-	/// To do: Coplien, back to 20000.
 }
