@@ -6,7 +6,7 @@
 #    By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/28 16:17:08 by fde-capu          #+#    #+#              #
-#    Updated: 2021/07/28 16:17:40 by fde-capu         ###   ########.fr        #
+#    Updated: 2021/07/29 07:39:39 by fde-capu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,9 @@ NAME	=	span
 SRCS	=	span.cpp main.cpp
 HEAD	=	span.hpp
 SHELL	=	/bin/sh
-CC		=	clang++ -std=c++98
+CC		=	$(CC98)
+CC11	=	clang++
+CC98	=	clang++ -std=c++98
 CCFLAGS	=	-Wall -Werror -Wextra -g
 OBJS	=	$(SRCS:.cpp=.o)
 VAL		=	valgrind
