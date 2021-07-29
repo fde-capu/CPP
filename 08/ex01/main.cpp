@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/28 16:19:10 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/07/29 10:02:46 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/07/29 10:54:43 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,11 +132,49 @@ int main()
 
 	std::cout << std::endl << "[ G ] 10K+ elements." << std::endl;
 	srand(time(NULL));
-	std::list<int> rnd_list = generate_random(20000);
-	Span sp_rnd = Span(20000);
+	std::list<int> rnd_list = generate_random(10001);
+	Span sp_rnd = Span(10001);
 	std::cout << sp_rnd << std::endl;
 	sp_rnd.addNumber(rnd_list.begin(), rnd_list.end());
 	std::cout << sp_rnd << std::endl;
 	std::cout << sp_rnd.shortestSpan() << std::endl;
 	std::cout << sp_rnd.longestSpan() << std::endl;
+
+
+
+	std::cout << std::endl << "[ H ] Coplien." << std::endl;
+	std::list<int> short_rnd = generate_random(20);
+	Span rnd_sp = Span(21);
+	rnd_sp.addNumber(short_rnd.begin(), short_rnd.end());
+
+	Span dup1(rnd_sp);
+	Span dup2 = rnd_sp;
+	Span * dup3 = new Span(rnd_sp);
+
+	std::cout << rnd_sp << std::endl;
+	rnd_sp.showElements();
+	std::cout << dup1 << std::endl;
+	dup1.showElements();
+	std::cout << dup2 << std::endl;
+	dup2.showElements();
+	std::cout << *dup3 << std::endl;
+	dup3->showElements();
+
+	rnd_sp.addNumber(0);
+	dup1.addNumber(1);
+	dup2.addNumber(2);
+	dup3->addNumber(3);
+
+	std::cout << rnd_sp << std::endl;
+	rnd_sp.showElements();
+	std::cout << dup1 << std::endl;
+	dup1.showElements();
+	std::cout << dup2 << std::endl;
+	dup2.showElements();
+	std::cout << *dup3 << std::endl;
+	dup3->showElements();
+
+	delete dup3;
+
+	/// To do: Coplien, back to 20000.
 }

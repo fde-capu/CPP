@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/28 16:18:35 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/07/29 09:05:40 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/07/29 10:45:30 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <exception>
 #include <limits>
 #include <cmath>
+#include <sstream>
 
 Span::Span(unsigned int i)
 {
@@ -38,7 +39,7 @@ void Span::addNumber(int i)
 	list_.push_back(i);
 }
 
-void Span::addNumber(std::list<int>::iterator begin, std::list<int>::iterator end)
+void Span::addNumber(std::list<int>::const_iterator begin, std::list<int>::const_iterator end)
 {
 	try
 	{
@@ -51,12 +52,17 @@ void Span::addNumber(std::list<int>::iterator begin, std::list<int>::iterator en
 		throw e;
 	}
 	
-	std::list<int>::iterator h;
+	std::list<int>::const_iterator h;
 	for (h = begin; h != end; h++)
 		addNumber(*h);
 }
 
-unsigned int Span::shortestSpan()
+void Span::addNumber(Span const & ref)
+{
+	addNumber(ref.getBegin(), ref.getEnd());
+}
+
+unsigned int Span::shortestSpan() const
 {
 	try
 	{
@@ -85,7 +91,7 @@ unsigned int Span::shortestSpan()
 	return s;
 }
 
-unsigned int Span::longestSpan()
+unsigned int Span::longestSpan() const
 {
 	try
 	{
@@ -130,11 +136,37 @@ Span::Span(Span const & src)
 	return ;
 }
 
+size_t Span::getLimit() const
+{
+	return limit_;
+}
+
+void Span::showElements() const
+{
+	std::stringstream o;
+	o << "{ ";
+	for (std::list<int>::const_iterator h = list_.begin(); h != list_.end(); std::advance(h, 1))
+		o << *h << " ";
+	o << "}";
+	std::cout << o.str() << std::endl;
+}
+
+std::list<int>::const_iterator Span::getBegin() const
+{
+	return list_.begin();
+}
+
+std::list<int>::const_iterator Span::getEnd() const
+{
+	return list_.end();
+}
+
 Span & Span::operator= (Span const & rhs)
 {
 	if (this != &rhs)
 	{
-//		this->member = rhs.getMember();
+		this->limit_ = rhs.getLimit();
+		this->addNumber(rhs);
 	}
 	return *this;
 }
