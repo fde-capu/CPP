@@ -7,6 +7,9 @@ int mymain(); // Added.
 #define MAX_VAL 750
 int main(int, char**)
 {
+	mymain(); // Added my own tests.
+	std::cout << "// Expected output is std::exception twice (out of range)." << std::endl;
+
     Array<int> numbers(MAX_VAL);
     int* mirror = new int[MAX_VAL];
     srand(time(NULL));
@@ -51,9 +54,8 @@ int main(int, char**)
     {
         numbers[i] = rand();
     }
+
     delete [] mirror;//
 
-	std::cout << "// Expected output is std::exception twice (out of range)." << std::endl;
-	mymain(); // Added my own tests.
     return 0;
 }
