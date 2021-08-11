@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/05 08:35:16 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/08/05 08:39:08 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/08/11 16:44:26 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <sstream>
 # include <iomanip>
+# include <iostream>
 
 template<typename T>
 void hex_dump(T & block)
