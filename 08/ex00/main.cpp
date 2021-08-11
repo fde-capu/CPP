@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 17:07:54 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/07/28 16:00:34 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/08/03 07:28:55 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,14 @@ int main ()
 	else
 		std::cout << "Not found." << std::endl;
 
+	list_it = ::easyfind(list, 4);
+	std::cout << "Finds 4 >> " << *list_it << std::endl;
+	if (list_it != list.end())
+		std::cout << "Found." << std::endl;
+	else
+		std::cout << "Not found." << std::endl;
+
+
 
 	std::cout << std::endl << "[ B ] std::vector<int>" << std::endl;
 
@@ -71,6 +79,14 @@ int main ()
 	else
 		std::cout << "Not found." << std::endl;
 
+	vector_it = ::easyfind(vector, 0);
+	std::cout << "Finds 0 >> " << *vector_it << std::endl;
+	if (vector_it != vector.end())
+		std::cout << "Found." << std::endl;
+	else
+		std::cout << "Not found." << std::endl;
+
+
 
 	std::cout << std::endl << "[ C ] std::deque<int>" << std::endl;
 
@@ -91,6 +107,13 @@ int main ()
 
 	deque_it = ::easyfind(deque, 8);
 	std::cout << "Finds 8 >> " << *deque_it << std::endl;
+	if (deque_it != deque.end())
+		std::cout << "Found." << std::endl;
+	else
+		std::cout << "Not found." << std::endl;
+
+	deque_it = ::easyfind(deque, 0);
+	std::cout << "Finds 0 >> " << *deque_it << std::endl;
 	if (deque_it != deque.end())
 		std::cout << "Found." << std::endl;
 	else

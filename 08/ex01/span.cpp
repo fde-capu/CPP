@@ -6,13 +6,12 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/28 16:18:35 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/07/29 10:45:30 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/08/03 07:51:40 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "span.hpp"
 #include <iostream>
-#include <exception>
 #include <limits>
 #include <cmath>
 #include <sstream>
@@ -25,33 +24,15 @@ Span::Span(unsigned int i)
 
 void Span::addNumber(int i)
 {
-	try
-	{
-		if (limit_ == list_.size())
-			throw std::length_error("Limit reached.");
-	}
-	catch(std::exception&e)
-	{
-		std::cout << "Ouch! " << e.what() << std::endl;
-		throw e;
-	}
-	
+	if (limit_ == list_.size())
+		throw SpanException::LimitReached();
 	list_.push_back(i);
 }
 
 void Span::addNumber(std::list<int>::const_iterator begin, std::list<int>::const_iterator end)
 {
-	try
-	{
-		if (limit_ < list_.size() + std::distance(begin, end))
-			throw std::length_error("Range would break limits, nothing done.");
-	}
-	catch(std::exception&e)
-	{
-		std::cout << "Ouch! " << e.what() << std::endl;
-		throw e;
-	}
-	
+	if (limit_ < list_.size() + std::distance(begin, end))
+		throw SpanException::BreakLimits();
 	std::list<int>::const_iterator h;
 	for (h = begin; h != end; h++)
 		addNumber(*h);
@@ -64,17 +45,8 @@ void Span::addNumber(Span const & ref)
 
 unsigned int Span::shortestSpan() const
 {
-	try
-	{
-		if (list_.size() <= 1)
-			throw std::length_error("List is too short.");
-	}
-	catch(std::exception&e)
-	{
-		std::cout << "Ouch! " << e.what() << std::endl;
-		throw e;
-	}
-
+	if (list_.size() <= 1)
+		throw SpanException::SizeIssue();
 	unsigned int s(std::numeric_limits<unsigned int>::max());
 	std::list<int>::const_iterator ha;
 	std::list<int>::const_iterator hb;
@@ -93,17 +65,8 @@ unsigned int Span::shortestSpan() const
 
 unsigned int Span::longestSpan() const
 {
-	try
-	{
-		if (list_.size() <= 1)
-			throw std::length_error("List is too short.");
-	}
-	catch(std::exception&e)
-	{
-		std::cout << "Ouch! " << e.what() << std::endl;
-		throw e;
-	}
-
+	if (list_.size() <= 1)
+		throw SpanException::SizeIssue();
 	unsigned int s(std::numeric_limits<unsigned int>::min());
 	std::list<int>::const_iterator ha;
 	std::list<int>::const_iterator hb;

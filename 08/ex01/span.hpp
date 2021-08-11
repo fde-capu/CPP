@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/28 16:18:57 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/07/29 10:28:44 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/08/03 07:48:34 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,33 @@
 # define SPAN_HPP
 # include <list>
 # include <iostream>
+# include <exception>
+
+class SpanException: public std::exception
+{
+	public:
+		struct LimitReached: public::std::exception
+		{
+			const char * what() const throw()
+			{
+				return "Limit reached.";
+			}
+		};
+		struct BreakLimits: public::std::exception
+		{
+			const char * what() const throw()
+			{
+				return "Range would break limits, nothing done.";
+			}
+		};
+		struct SizeIssue: public::std::exception
+		{
+			const char * what() const throw()
+			{
+				return "List is too short.";
+			}
+		};
+};
 
 class Span
 {

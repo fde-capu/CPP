@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/28 16:19:10 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/07/29 11:07:06 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/08/05 08:14:09 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,19 @@ std::list<int> generate_random(unsigned int n)
 		gen.push_back(gen_n);
 	}
 	return gen;
+}
+
+bool ft_confirm(std::string msg, bool def)
+{
+	std::string answer;
+
+	std::cout << msg;
+	if (def)
+		std::cout << " [Y] ";
+	else
+		std::cout << " [N] ";
+	std::getline(std::cin, answer);
+	return answer != "" ? !def : def;
 }
 
 int main()
@@ -58,7 +71,7 @@ int main()
 	}
 	catch (std::exception&e)
 	{
-		std::cout << "Controled error: " << e.what() << "." << std::endl;
+		std::cout << "Controled error: " << e.what() << std::endl;
 	}
 	std::cout << sp << std::endl;
 
@@ -73,7 +86,7 @@ int main()
 	}
 	catch (std::exception&e)
 	{
-		std::cout << "Controled error: " << e.what() << "." << std::endl;
+		std::cout << "Controled error: " << e.what() << std::endl;
 	}
 
 
@@ -87,7 +100,7 @@ int main()
 	}
 	catch (std::exception&e)
 	{
-		std::cout << "Controled error: " << e.what() << "." << std::endl;
+		std::cout << "Controled error: " << e.what() << std::endl;
 	}
 
 
@@ -124,7 +137,7 @@ int main()
 	}
 	catch (std::exception&e)
 	{
-		std::cout << "Controled error: " << e.what() << "." << std::endl;
+		std::cout << "Controled error: " << e.what() << std::endl;
 	}
 	std::cout << sp_by_it << std::endl;
 
@@ -142,37 +155,54 @@ int main()
 
 
 
-	std::cout << std::endl << "[ H ] Coplien." << std::endl;
-	std::list<int> short_rnd = generate_random(20);
-	Span rnd_sp = Span(21);
-	rnd_sp.addNumber(short_rnd.begin(), short_rnd.end());
+	std::cout << std::endl << "[ H ] James O. \"Cope\" Coplien's Canonical Orthodoxy demo." << std::endl;
+	{
+		std::list<int> short_rnd = generate_random(20);
+		Span rnd_sp = Span(21);
+		rnd_sp.addNumber(short_rnd.begin(), short_rnd.end());
 
-	Span dup1(rnd_sp);
-	Span dup2 = rnd_sp;
-	Span * dup3 = new Span(rnd_sp);
+		Span dup1(rnd_sp);
+		Span dup2 = rnd_sp;
+		Span * dup3 = new Span(rnd_sp);
 
-	std::cout << rnd_sp << std::endl;
-	rnd_sp.showElements();
-	std::cout << dup1 << std::endl;
-	dup1.showElements();
-	std::cout << dup2 << std::endl;
-	dup2.showElements();
-	std::cout << *dup3 << std::endl;
-	dup3->showElements();
+		std::cout << rnd_sp << std::endl;
+		rnd_sp.showElements();
+		std::cout << dup1 << std::endl;
+		dup1.showElements();
+		std::cout << dup2 << std::endl;
+		dup2.showElements();
+		std::cout << *dup3 << std::endl;
+		dup3->showElements();
 
-	rnd_sp.addNumber(0);
-	dup1.addNumber(1);
-	dup2.addNumber(2);
-	dup3->addNumber(3);
+		rnd_sp.addNumber(0);
+		dup1.addNumber(1);
+		dup2.addNumber(2);
+		dup3->addNumber(3);
 
-	std::cout << rnd_sp << std::endl;
-	rnd_sp.showElements();
-	std::cout << dup1 << std::endl;
-	dup1.showElements();
-	std::cout << dup2 << std::endl;
-	dup2.showElements();
-	std::cout << *dup3 << std::endl;
-	dup3->showElements();
+		std::cout << rnd_sp << std::endl;
+		rnd_sp.showElements();
+		std::cout << dup1 << std::endl;
+		dup1.showElements();
+		std::cout << dup2 << std::endl;
+		dup2.showElements();
+		std::cout << *dup3 << std::endl;
+		dup3->showElements();
 
-	delete dup3;
+		delete dup3;
+	}
+
+
+	std::cout << std::endl << "[ I ] Now really: 100K+ elements." << std::endl;
+	if (ft_confirm("Spanning this many elements takes aprox. 6 min. on i7-6700(8)@4KGHz. Are you sure?", 0))
+	{
+		srand(time(NULL));
+		std::list<int> hundred_thousand_one = generate_random(100001);
+		Span sp_hto = Span(100001);
+		std::cout << sp_hto << std::endl;
+		sp_hto.addNumber(hundred_thousand_one.begin(), hundred_thousand_one.end());
+		std::cout << sp_hto << std::endl;
+		std::cout << sp_hto.shortestSpan() << std::endl;
+		std::cout << sp_hto.longestSpan() << std::endl;
+	}
+
 }
