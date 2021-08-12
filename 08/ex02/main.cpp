@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/03 09:06:08 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/08/11 16:39:02 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/08/12 15:56:53 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void listmain()
 	std::cout << lstack.back() << std::endl; // Returns & top == 17. << 17
 
 	lstack.pop_back(); // Removes top; // {5}
-	std::cout << lstack.size() << std::endl; // << 1
+	std::cout << lstack.size() << std::endl; // << Size: 1
 
 	lstack.push_back(3); // {5, 3}
 	lstack.push_back(5); // {5, 3, 5}
