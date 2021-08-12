@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/03 09:06:08 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/08/12 15:56:53 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/08/12 15:59:23 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void listmain()
 		std::cout << *it << std::endl;
 		++it;
 	}
-//	std::stack<int> s(lstack); // Initialize std::stack passing std::list? No-no.
+	// std::stack<int> s(lstack); // Initialize std::stack passing std::list? No-no.
 }
 
 int main()
