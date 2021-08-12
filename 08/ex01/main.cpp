@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/28 16:19:10 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/08/05 08:14:09 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/08/12 15:09:38 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ std::list<int> generate_random(unsigned int n)
 
 	for (unsigned int i = 0; i < n; i++)
 	{
-		gen_n = rand() % (n * 3);
+		gen_n = rand() % (n * 30);
 		gen_n *= rand() % 2 ? 1 : -1;
 		gen.push_back(gen_n);
 	}
@@ -47,6 +47,7 @@ int main()
 
 	Span sp = Span(5);
 	std::cout << sp << std::endl;
+	sp.showElements();
 
 	sp.addNumber(5);
 	sp.addNumber(3);
@@ -54,6 +55,7 @@ int main()
 	sp.addNumber(9);
 	sp.addNumber(11);
 	std::cout << sp << std::endl;
+	sp.showElements();
 
 
 
@@ -76,8 +78,6 @@ int main()
 	std::cout << sp << std::endl;
 
 
-
-	std::cout << std::endl << "[ D ] Not enough members (0)." << std::endl;
 	Span err_sp = Span(5);
 	std::cout << err_sp << std::endl;
 	try
@@ -90,8 +90,6 @@ int main()
 	}
 
 
-
-	std::cout << std::endl << "[ E ] Not enough members (1)." << std::endl;
 	err_sp.addNumber(42);
 	std::cout << err_sp << std::endl;
 	try
@@ -105,7 +103,7 @@ int main()
 
 
 
-	std::cout << std::endl << "[ F ] addNumber(iterator, iterator)." << std::endl;
+	std::cout << std::endl << "[ D ] addNumber(iterator, iterator)." << std::endl;
 	std::list<int> base;
 	std::list<int>::iterator begin;
 	std::list<int>::iterator end;
@@ -116,34 +114,45 @@ int main()
 	base.push_back(-20);
 	base.push_back(4);
 	begin = base.begin();
-	end = base.end();
+	end = base.end(); // Basic list.
 
-	Span sp_by_it = Span(10);
-	sp_by_it.addNumber(begin, end);
+	Span sp_by_it = Span(15);
+	sp_by_it.addNumber(begin, end); // addNumber by pair of iterators.
 	std::cout << sp_by_it << std::endl;
+	sp_by_it.showElements();
 	std::cout << sp_by_it.shortestSpan() << std::endl;
 	std::cout << sp_by_it.longestSpan() << std::endl;
+	std::cout << std::endl;
 
 	std::advance(begin, 1);
 	std::advance(end, -2);
-	sp_by_it.addNumber(begin, end);
+	sp_by_it.addNumber(begin, end); // Other iterator positions.
 	std::cout << sp_by_it << std::endl;
+	sp_by_it.showElements();
 	std::cout << sp_by_it.shortestSpan() << std::endl;
 	std::cout << sp_by_it.longestSpan() << std::endl;
+	std::cout << std::endl;
+
+	sp_by_it.addNumber(sp); // Add by passing another Span (bonus).
+	std::cout << sp_by_it << std::endl;
+	sp_by_it.showElements();
+	std::cout << sp_by_it.shortestSpan() << std::endl;
+	std::cout << sp_by_it.longestSpan() << std::endl;
+	std::cout << std::endl;
 
 	try
 	{
 		sp_by_it.addNumber(begin, end);
+		// sp_by_it.addNumber(sp);
 	}
 	catch (std::exception&e)
 	{
 		std::cout << "Controled error: " << e.what() << std::endl;
 	}
 	std::cout << sp_by_it << std::endl;
+	sp_by_it.showElements();
 
-
-
-	std::cout << std::endl << "[ G ] 10K+ elements." << std::endl;
+	std::cout << std::endl << "[ F ] 10K+ elements." << std::endl;
 	srand(time(NULL));
 	std::list<int> rnd_list = generate_random(10001);
 	Span sp_rnd = Span(10001);
@@ -155,7 +164,7 @@ int main()
 
 
 
-	std::cout << std::endl << "[ H ] James O. \"Cope\" Coplien's Canonical Orthodoxy demo." << std::endl;
+	std::cout << std::endl << "[ G ] James O. \"Cope\" Coplien's Canonical Orthodoxy demo." << std::endl;
 	{
 		std::list<int> short_rnd = generate_random(20);
 		Span rnd_sp = Span(21);
@@ -192,7 +201,7 @@ int main()
 	}
 
 
-	std::cout << std::endl << "[ I ] Now really: 100K+ elements." << std::endl;
+	std::cout << std::endl << "[ H ] Now really: 100K+ elements." << std::endl;
 	if (ft_confirm("Spanning this many elements takes aprox. 6 min. on i7-6700(8)@4KGHz. Are you sure?", 0))
 	{
 		srand(time(NULL));

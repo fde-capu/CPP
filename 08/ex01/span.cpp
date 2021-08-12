@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/28 16:18:35 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/08/03 07:51:40 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/08/12 15:05:30 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <limits>
 #include <cmath>
 #include <sstream>
+#include <algorithm>
 
 Span::Span(unsigned int i)
 {
@@ -53,7 +54,7 @@ unsigned int Span::shortestSpan() const
 
 	for (ha = list_.begin(); ha != list_.end(); ha++)
 	{
-		for (hb = list_.begin(); hb != list_.end(); hb++)
+		for (hb = ha; hb != list_.end(); hb++)
 		{
 			if (ha == hb) continue;
 			s = static_cast<unsigned int>(std::abs(*ha - *hb)) < s ?
@@ -67,20 +68,9 @@ unsigned int Span::longestSpan() const
 {
 	if (list_.size() <= 1)
 		throw SpanException::SizeIssue();
-	unsigned int s(std::numeric_limits<unsigned int>::min());
-	std::list<int>::const_iterator ha;
-	std::list<int>::const_iterator hb;
-
-	for (ha = list_.begin(); ha != list_.end(); ha++)
-	{
-		for (hb = list_.begin(); hb != list_.end(); hb++)
-		{
-			if (ha == hb) continue;
-			s = static_cast<unsigned int>(std::abs(*ha - *hb)) > s ?
-				static_cast<unsigned int>(std::abs(*ha - *hb)) : s;
-		}
-	}
-	return s;
+	std::list<int>::const_iterator min_e = min_element(list_.begin(), list_.end());
+	std::list<int>::const_iterator max_e = max_element(list_.begin(), list_.end());
+	return *max_e - *min_e;
 }
 
 unsigned int Span::getSize() const
