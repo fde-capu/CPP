@@ -6,7 +6,7 @@
 /*   By: fde-capu <fde-capu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 17:07:54 by fde-capu          #+#    #+#             */
-/*   Updated: 2021/08/03 07:28:55 by fde-capu         ###   ########.fr       */
+/*   Updated: 2021/08/16 06:54:18 by fde-capu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,23 +33,20 @@ int main ()
 	list.push_back(-117);
 
 	list_it = ::easyfind(list, 42);
-	std::cout << "Finds 42 >> " << *list_it << std::endl;
 	if (list_it != list.end())
-		std::cout << "Found." << std::endl;
+		std::cout << "Found. " << *list_it << std::endl;
 	else
 		std::cout << "Not found." << std::endl;
 
 	list_it = ::easyfind(list, 8);
-	std::cout << "Finds 8 >> " << *list_it << std::endl;
 	if (list_it != list.end())
-		std::cout << "Found." << std::endl;
+		std::cout << "Found. " << *list_it << std::endl;
 	else
 		std::cout << "Not found." << std::endl;
 
 	list_it = ::easyfind(list, 4);
-	std::cout << "Finds 4 >> " << *list_it << std::endl;
 	if (list_it != list.end())
-		std::cout << "Found." << std::endl;
+		std::cout << "Found. " << *list_it << std::endl;
 	else
 		std::cout << "Not found." << std::endl;
 
@@ -66,23 +63,20 @@ int main ()
 	vector.push_back(-117);
 
 	vector_it = ::easyfind(vector, 42);
-	std::cout << "Finds 42 >> " << *vector_it << std::endl;
 	if (vector_it != vector.end())
-		std::cout << "Found." << std::endl;
+		std::cout << "Found. " << *vector_it << std::endl;
 	else
 		std::cout << "Not found." << std::endl;
 
 	vector_it = ::easyfind(vector, 8);
-	std::cout << "Finds 8 >> " << *vector_it << std::endl;
 	if (vector_it != vector.end())
-		std::cout << "Found." << std::endl;
+		std::cout << "Found. " << *vector_it << std::endl;
 	else
 		std::cout << "Not found." << std::endl;
 
 	vector_it = ::easyfind(vector, 0);
-	std::cout << "Finds 0 >> " << *vector_it << std::endl;
 	if (vector_it != vector.end())
-		std::cout << "Found." << std::endl;
+		std::cout << "Found. " << *vector_it << std::endl;
 	else
 		std::cout << "Not found." << std::endl;
 
@@ -99,23 +93,20 @@ int main ()
 	deque.push_back(-117);
 
 	deque_it = ::easyfind(deque, 42);
-	std::cout << "Finds 42 >> " << *deque_it << std::endl;
 	if (deque_it != deque.end())
-		std::cout << "Found." << std::endl;
+		std::cout << "Found. " << *deque_it << std::endl;
 	else
 		std::cout << "Not found." << std::endl;
 
 	deque_it = ::easyfind(deque, 8);
-	std::cout << "Finds 8 >> " << *deque_it << std::endl;
 	if (deque_it != deque.end())
-		std::cout << "Found." << std::endl;
+		std::cout << "Found. " << *deque_it << std::endl;
 	else
 		std::cout << "Not found." << std::endl;
 
 	deque_it = ::easyfind(deque, 0);
-	std::cout << "Finds 0 >> " << *deque_it << std::endl;
 	if (deque_it != deque.end())
-		std::cout << "Found." << std::endl;
+		std::cout << "Found. " << *deque_it << std::endl;
 	else
 		std::cout << "Not found." << std::endl;
 
